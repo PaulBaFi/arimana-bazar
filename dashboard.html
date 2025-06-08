@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Arimana Bazar Ica</title>
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="shortcut icon" href="./img/SimpleLogo.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/aeeba1d16d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../img/SimpleLogo.png" alt="Arimana Bazar Ica Logo" />
+        <span>Arimana Bazar</span>
+      </div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="./dashboard.html">
+            <i class="fa-solid fa-home"></i>
+            Dashboard</a
+          >
+        </li>
+
+        <li>
+          <input type="checkbox" id="usuarios-toogle" />
+          <label for="usuarios-toogle">
+            Gestión de usuarios
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./gestion-usuarios/usuarios.html">
+                <i class="fa-solid fa-circle-user"></i>
+                Usuarios
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-usuarios/roles.html">
+                <i class="fa-solid fa-tags"></i>
+                Roles
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-usuarios/cargos.html">
+                <i class="fa-solid fa-briefcase"></i>
+                Cargos
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-usuarios/contratos.html">
+                <i class="fa-solid fa-file-signature"></i>
+                Contratos
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="inventarios-toogle" />
+          <label for="inventarios-toogle">
+            Gestión de inventarios
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./gestion-inventarios/categorias.html">
+                <i class="fa-solid fa-icons"></i>
+                Cateogrías
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-inventarios/productos.html">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Productos
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-inventarios/almacenes.html">
+                <i class="fa-solid fa-boxes-packing"></i>
+                Almacenes
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="pedidos-toogle" />
+          <label for="pedidos-toogle">
+            Gestión de pedidos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./gestion-pedidos/proveedores.html">
+                <i class="fa-solid fa-user-tie"></i>
+                Proveedores
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-pedidos/pedidos.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Pedidos
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="ventas-toogle" />
+          <label for="ventas-toogle">
+            Gestión de ventas
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./gestion-ventas/clientes.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Clientes
+              </a>
+            </li>
+            <li>
+              <a href="./gestion-ventas/ventas.html">
+                <i class="fa-solid fa-cash-register"></i>
+                Ventas
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="configuraciones-toogle" />
+          <label for="configuraciones-toogle">
+            Configuraciones
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./configuraciones/nosotros.html">
+                <i class="fa-solid fa-hotel"></i>
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a href="./configuraciones/perfil.html">
+                <i class="fa-solid fa-id-badge"></i>
+                Perfil de usuario
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="user-profile">
+        <img src="../img/user-f.png" alt="User Avatar" />
+
+        <div class="user-info">
+          <span class="userName">Admin</span>
+          <span class="userEmail">admin@gmail.com</span>
+        </div>
+
+        <div class="settings-content" id="settingsContent">
+          <button class="settings-content-btn">
+            <a href="../configuraciones/perfil.html">Ver perfil</a>
+          </button>
+          <button class="settings-content-btn logout-btn">Cerrar sesión</button>
+        </div>
+
+        <button class="settings-button" onclick="toggleButtons()">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="breadcrumbs">
+        <p><i class="fa-solid fa-home"></i> &nbsp; / &nbsp; Dashboard</p>
+      </div>
+
+      <div class="titulo-interfaz">
+        <h1 class="main-title">Dashboard</h1>
+      </div>
+
+      <div class="mensaje-bienvenida">
+        <p class="mensaje-title" id="greeting"></p>
+        <p class="mensaje-descripcion">
+          Aqui encontraras distintos atajos para acceder a cada modulo del
+          sistema
+        </p>
+      </div>
+
+      <div class="dashboard-grid">
+        <a
+          href="./gestion-usuarios/usuarios.html"
+          class="dashboard-card usuarios"
+        >
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Usuario.png" alt="Usuarios" />
+          </div>
+          <h3 class="card-title">Usuarios</h3>
+          <div class="card-count">3</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+
+        <a href="./gestion-usuarios/roles.html" class="dashboard-card roles">
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Roles.png" alt="Roles" />
+          </div>
+          <h3 class="card-title">Roles</h3>
+          <div class="card-count">3</div>
+          <p class="card-subtitle">Tipos de roles</p>
+        </a>
+
+        <a
+          href="./gestion-pedidos/proveedores.html"
+          class="dashboard-card Proveedores"
+        >
+          <div class="card-icon">
+            <img
+              src="./img/Iconos-dashboard/Proveedores.png"
+              alt="Proveedores"
+            />
+          </div>
+          <h3 class="card-title">Proveedores</h3>
+          <div class="card-count">6</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+
+        <a
+          href="./gestion-ventas/clientes.html"
+          class="dashboard-card Clientes"
+        >
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Clientes.png" alt="Clientes" />
+          </div>
+          <h3 class="card-title">Clientes</h3>
+          <div class="card-count">15</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+
+        <a
+          href="./gestion-inventarios/categorias.html"
+          class="dashboard-card Categorias"
+        >
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Categorias.png" alt="Categorias" />
+          </div>
+          <h3 class="card-title">Categorias</h3>
+          <div class="card-count">7</div>
+          <p class="card-subtitle">Registradas</p>
+        </a>
+
+        <a
+          href="./gestion-inventarios/productos.html"
+          class="dashboard-card productos"
+        >
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Productos.png" alt="Productos" />
+          </div>
+          <h3 class="card-title">Productos</h3>
+          <div class="card-count">150</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+
+        <a
+          href="./gestion-inventarios/almacenes.html"
+          class="dashboard-card almacenes"
+        >
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Almacen.png" alt="Almacenes" />
+          </div>
+          <h3 class="card-title">Almacenes</h3>
+          <div class="card-count">2</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+
+        <a href="./gestion-pedidos/pedidos.html" class="dashboard-card Pedidos">
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Pedidos.png" alt="Pedidos" />
+          </div>
+          <h3 class="card-title">Pedidos</h3>
+          <div class="card-count">20</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+
+        <a href="./" class="dashboard-card Reportes">
+          <div class="card-icon">
+            <img src="./img/Iconos-dashboard/Reportes.png" alt="Reportes" />
+          </div>
+          <h3 class="card-title">Reportes</h3>
+          <div class="card-count">10</div>
+          <p class="card-subtitle">Registrados</p>
+        </a>
+      </div>
+    </main>
+
+    <script src="./js/greeting.js"></script>
+    <script src="./js/fadeinup.js"></script>
+  </body>
+</html>

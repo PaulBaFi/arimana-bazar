@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+}
+
+.registrarse-container {
+    aspect-ratio: 5 / 3;
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 900px;
+    padding: 2em;
+    border-radius: .5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.registrarse-title {
+    font-size: 2em;
+    font-weight: 700;
+    color: #202020;
+}
+
+.mensaje {
+    width: 100%;
+    text-align: left;
+    color: #292929;
+}
+
+.mensaje a {
+    color: #0FC2BF;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.mensaje a:hover {
+    text-decoration: underline;
+}
+
+.form-registrarse {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-block-start: 2em;
+}
+
+.columns-groups {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.form-group {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #404040;
+    width: 150px;
+}
+
+.columna2 .form-group label {
+    width: 140px;
+}
+
+.form-group input,
+.form-group select {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #202020;
+    outline: none;
+    width: 230px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0FC2BF;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url('../img/icons/AngleDown.png');
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1em;
+    padding-right: 2em;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5em;
+}
+
+.form-group-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.form-group-btns button {
+    padding: 0.5em 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-group-btns button[type="submit"] {
+    background-color: #0FC2BF;
+    color: white;
+}

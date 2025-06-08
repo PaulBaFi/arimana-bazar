@@ -1,0 +1,65 @@
+.section-group {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.estadisticas {
+    height: 100%;
+    background-color: #f2f2f2;
+    width: 420px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-block-end: 1em;
+}
+
+.search-container {
+    gap: 0;
+}
+
+#search-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+#btn-search {
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.estadisticas-group {
+    display: flex;
+    gap: .3em;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: .3em;
+    margin-left: .5em;
+}
+
+.estadisticas-group label {
+    display: flex;
+    gap: .3em;
+    margin-left: .5em;
+    align-items: center;
+}
+
+.estadisticas-group input,
+.estadisticas-group select {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #202020;
+    outline: none;
+}

@@ -1,0 +1,30 @@
+.section-group {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.permisos {
+    height: 100%;
+    background-color: #f2f2f2;
+    width: 420px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-block-end: 1em;
+}
+
+.permisos label {
+    margin-bottom: .5em;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}

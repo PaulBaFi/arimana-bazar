@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roles | Arimana Bazar</title>
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/roles.css" />
+    <link rel="stylesheet" href="../css/switch-slide.css" />
+    <link
+      rel="shortcut icon"
+      href="../img/SimpleLogo.png"
+      type="image/x-icon"
+    />
+    <script
+      src="https://kit.fontawesome.com/aeeba1d16d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../img/SimpleLogo.png" alt="Arimana Bazar Ica Logo" />
+        <span>Arimana Bazar</span>
+      </div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="../dashboard.html">
+            <i class="fa-solid fa-home"></i>
+            Dashboard</a
+          >
+        </li>
+
+        <li>
+          <input type="checkbox" id="usuarios-toogle" checked />
+          <label for="usuarios-toogle">
+            Gestión de usuarios
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-usuarios/usuarios.html">
+                <i class="fa-solid fa-circle-user"></i>
+                Usuarios
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-usuarios/roles.html">
+                <i class="fa-solid fa-tags"></i>
+                Roles
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-usuarios/cargos.html">
+                <i class="fa-solid fa-briefcase"></i>
+                Cargos
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-usuarios/contratos.html">
+                <i class="fa-solid fa-file-signature"></i>
+                Contratos
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="inventarios-toogle" />
+          <label for="inventarios-toogle">
+            Gestión de inventarios
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-inventarios/categorias.html">
+                <i class="fa-solid fa-icons"></i>
+                Categorías
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-inventarios/productos.html">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Productos
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-inventarios/almacenes.html">
+                <i class="fa-solid fa-boxes-packing"></i>
+                Almacenes
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="pedidos-toogle" />
+          <label for="pedidos-toogle">
+            Gestión de pedidos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-pedidos/proveedores.html">
+                <i class="fa-solid fa-user-tie"></i>
+                Proveedores
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-pedidos/pedidos.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Pedidos
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="ventas-toogle" />
+          <label for="ventas-toogle">
+            Gestión de ventas
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-ventas/clientes.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Clientes
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-ventas/ventas.html">
+                <i class="fa-solid fa-cash-register"></i>
+                Ventas
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="configuraciones-toogle" />
+          <label for="configuraciones-toogle">
+            Configuraciones
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../configuraciones/nosotros.html">
+                <i class="fa-solid fa-hotel"></i>
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a href="../configuraciones/perfil.html">
+                <i class="fa-solid fa-id-badge"></i>
+                Perfil de usuario
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="user-profile">
+        <img src="../img/user-f.png" alt="User Avatar" />
+
+        <div class="user-info">
+          <span class="userName">Admin</span>
+          <span class="userEmail">admin@gmail.com</span>
+        </div>
+
+        <div class="settings-content" id="settingsContent">
+          <button class="settings-content-btn">
+            <a href="../configuraciones/perfil.html">Ver perfil</a>
+          </button>
+          <button class="settings-content-btn logout-btn">Cerrar sesión</button>
+        </div>
+
+        <button class="settings-button" onclick="toggleButtons()">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="breadcrumbs">
+        <p>
+          Dashboard &nbsp;/&nbsp; Gestión de usuarios &nbsp;/&nbsp;
+          <span>Roles</span>
+        </p>
+      </div>
+
+      <div class="actions-section">
+        <h1 class="main-title">Roles</h1>
+        <div class="button-group">
+          <button class="btn btn-primary" id="btn-nuevo-usuario">
+            <i class="fa-solid fa-plus"></i>
+            Nuevo rol
+          </button>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <table class="table" id="table-roles">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Otorgar</th>
+              <th>Editar</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Administrador</td>
+              <td>
+                <button class="action-btn grand-btn">
+                  <i class="fa-solid fa-key"></i>
+                </button>
+              </td>
+              <td>
+                <button class="action-btn edit-btn">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </td>
+              <td>
+                <button class="action-btn delete-btn">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Usuario estándar</td>
+              <td>
+                <button class="action-btn grand-btn">
+                  <i class="fa-solid fa-key"></i>
+                </button>
+              </td>
+              <td>
+                <button class="action-btn edit-btn">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </td>
+              <td>
+                <button class="action-btn delete-btn">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>Usuario sin acceso</td>
+              <td>
+                <button class="action-btn grand-btn">
+                  <i class="fa-solid fa-key"></i>
+                </button>
+              </td>
+              <td>
+                <button class="action-btn edit-btn">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </td>
+              <td>
+                <button class="action-btn delete-btn">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="permisos">
+          <h4 class="list-title">Lista de permisos</h4>
+          <label class="switch-container" for="i">
+            <label class="switch" for="i">
+              <input type="checkbox" id="i" />
+              <span class="slider"></span>
+            </label>
+            <span class="switch-label">Añadir usuarios</span>
+          </label>
+          <label class="switch-container" for="e">
+            <label class="switch" for="e">
+              <input type="checkbox" id="e" checked />
+              <span class="slider"></span>
+            </label>
+            <span class="switch-label">Eliminar usuarios</span>
+          </label>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

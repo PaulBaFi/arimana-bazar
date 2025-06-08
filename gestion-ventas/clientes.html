@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes | Arimana Bazar Ica</title>
+
+    <link rel="stylesheet" href="../css/global.css" />
+    <link
+      rel="shortcut icon"
+      href="../img/SimpleLogo.png"
+      type="image/x-icon"
+    />
+    <script
+      src="https://kit.fontawesome.com/aeeba1d16d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="../img/SimpleLogo.png" alt="Arimana Bazar Ica Logo" />
+        <span>Arimana Bazar</span>
+      </div>
+
+      <ul class="nav-links">
+        <li>
+          <a href="../dashboard.html">
+            <i class="fa-solid fa-home"></i>
+            Dashboard</a
+          >
+        </li>
+
+        <li>
+          <input type="checkbox" id="usuarios-toogle" />
+          <label for="usuarios-toogle">
+            Gestión de usuarios
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-usuarios/usuarios.html">
+                <i class="fa-solid fa-circle-user"></i>
+                Usuarios
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-usuarios/roles.html">
+                <i class="fa-solid fa-tags"></i>
+                Roles
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-usuarios/cargos.html">
+                <i class="fa-solid fa-briefcase"></i>
+                Cargos
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-usuarios/contratos.html">
+                <i class="fa-solid fa-file-signature"></i>
+                Contratos
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="inventarios-toogle" />
+          <label for="inventarios-toogle">
+            Gestión de inventarios
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-inventarios/categorias.html">
+                <i class="fa-solid fa-icons"></i>
+                Categorías
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-inventarios/productos.html">
+                <i class="fa-solid fa-boxes-stacked"></i>
+                Productos
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-inventarios/almacenes.html">
+                <i class="fa-solid fa-boxes-packing"></i>
+                Almacenes
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="pedidos-toogle" />
+          <label for="pedidos-toogle">
+            Gestión de pedidos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-pedidos/proveedores.html">
+                <i class="fa-solid fa-user-tie"></i>
+                Proveedores
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-pedidos/pedidos.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Pedidos
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="ventas-toogle" checked />
+          <label for="ventas-toogle">
+            Gestión de ventas
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../gestion-ventas/clientes.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Clientes
+              </a>
+            </li>
+            <li>
+              <a href="../gestion-ventas/ventas.html">
+                <i class="fa-solid fa-cash-register"></i>
+                Ventas
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="configuraciones-toogle" />
+          <label for="configuraciones-toogle">
+            Configuraciones
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../configuraciones/nosotros.html">
+                <i class="fa-solid fa-hotel"></i>
+                Nosotros
+              </a>
+            </li>
+            <li>
+              <a href="../configuraciones/perfil.html">
+                <i class="fa-solid fa-id-badge"></i>
+                Perfil de usuario
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="user-profile">
+        <img src="../img/user-f.png" alt="User Avatar" />
+
+        <div class="user-info">
+          <span class="userName">Admin</span>
+          <span class="userEmail">admin@gmail.com</span>
+        </div>
+
+        <div class="settings-content" id="settingsContent">
+          <button class="settings-content-btn">
+            <a href="../configuraciones/perfil.html">Ver perfil</a>
+          </button>
+          <button class="settings-content-btn logout-btn">Cerrar sesión</button>
+        </div>
+
+        <button class="settings-button" onclick="toggleButtons()">
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="breadcrumbs">
+        <p>
+          Dashboard &nbsp;/&nbsp; Gestión de ventas &nbsp;/&nbsp;
+          <span>Clientes</span>
+        </p>
+      </div>
+
+      <div class="actions-section">
+        <h1 class="main-title">Clientes</h1>
+        <div class="button-group">
+          <button class="btn btn-primary" id="btn-nuevo-cliente-">
+            <i class="fa-solid fa-building-user"></i>
+            Cliente jurídico
+          </button>
+          <button class="btn btn-primary" id="btn-nueva-cliente">
+            <i class="fa-solid fa-user-plus"></i>
+            Cliente natural
+          </button>
+        </div>
+      </div>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Buscar por nombres / razón social o DNI / RUC..."
+        />
+        <button id="btn-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <table class="table" id="table-cliente">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombres/Razón social</th>
+            <th>DNI/RUC</th>
+            <th>Dirección</th>
+            <th>Localidad</th>
+            <th>Teléfono</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Juan Pérez</td>
+            <td>12345678</td>
+            <td>Av. Siempre Viva 123</td>
+            <td>Lima - Lima - Surco</td>
+            <td>987654321</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Comercial El Buen Precio S.A.C.</td>
+            <td>20458796321</td>
+            <td>Jr. Comercio 456</td>
+            <td>Arequipa - Arequipa - Cercado</td>
+            <td>987123456</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>María López</td>
+            <td>87654321</td>
+            <td>Psje. Las Flores 789</td>
+            <td>Cusco - Cusco - San Sebastián</td>
+            <td>912345678</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <script src="../js/fadeinup.js"></script>
+  </body>
+</html>

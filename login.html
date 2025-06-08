@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar Sesión | Arimana Bazar Ica</title>
+
+    <link rel="stylesheet" href="./css/iniciar-sesion.css" />
+    <link rel="shortcut icon" href="./img/SimpleLogo.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/aeeba1d16d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="login-container">
+      <div class="login-background"></div>
+      <img class="login-logo" src="./img/logo-square.png" alt="" />
+      <h1 class="titulo">¡Bienvenid@!</h1>
+      <p class="mensaje">
+        Por favor, ingrese sus credenciales para entrar al sistema web de
+        Arimana Bazar Ica
+      </p>
+      <form class="login-form" id="loginForm">
+        <label for="correo">
+          <span>Correo Electrónico</span>
+          <input type="email" id="correo" name="correo" required max="50" />
+          <i class="fa-solid fa-user"></i>
+        </label>
+        <label for="clave">
+          <span>Contraseña</span>
+          <input type="password" id="clave" name="clave" required max="50" />
+          <i class="fa-solid fa-eye"></i>
+        </label>
+        <button type="submit" class="login-btn">Ingresar</button>
+      </form>
+      <p class="mensaje right">
+        Si aún no se encuentra registrado,<br />
+        ingrese aquí
+        <a class="registrarse-url" href="./registrarse.html">Registrarse</a>
+      </p>
+    </section>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // Detiene el envío real del form
+          login(); // Llama tu función personalizada
+        });
+
+      function login() {
+        const correo = document.getElementById("correo").value.trim();
+        const clave = document.getElementById("clave").value.trim();
+
+        // Validar campos vacíos
+        if (correo === "" || clave === "") {
+          alert("Por favor, complete todos los campos.");
+          return false;
+        }
+
+        // Validar formato del correo
+        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!validEmail.test(correo)) {
+          alert("Por favor, ingrese un correo electrónico válido.");
+          return false;
+        }
+
+        // Validar credenciales
+        if (correo === "paul.barahona@gmail.com" && clave === "123") {
+          window.location.href = "./dashboard.html";
+          return true;
+        } else {
+          alert("Credenciales incorrectas. Intente nuevamente.");
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>
