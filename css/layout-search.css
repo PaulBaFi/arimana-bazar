@@ -53,6 +53,10 @@
     align-items: center;
 }
 
+.estadisticas-group input {
+    margin-left: .5em;
+}
+
 .estadisticas-group input,
 .estadisticas-group select {
     flex: 1;

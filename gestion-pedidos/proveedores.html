@@ -192,7 +192,11 @@
       <div class="actions-section">
         <h1 class="main-title">Proveedores</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-usuario">
+          <button
+            class="btn btn-primary"
+            onclick="document.querySelector('#modal-proveedores').showModal()"
+            id="btn-nuevo-usuario"
+          >
             <i class="fa-solid fa-user-plus"></i>
             Nuevo proveedor
           </button>
@@ -269,5 +273,77 @@
         </tbody>
       </table>
     </main>
+
+    <dialog class="modal" id="modal-proveedores">
+      <div class="modal-content">
+        <h2 class="modal-title">Nuevo contrato</h2>
+        <form method="dialog" id="usuario-form">
+          <div class="columnas-group">
+            <div class="columna1">
+              <div class="form-group">
+                <label for="razonSocial">Razón social:</label>
+                <input type="text" id="razonSocial" required />
+              </div>
+              <div class="form-group">
+                <label for="ruc">RUC:</label>
+                <input type="number" max="11" id="ruc" required />
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" required />
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea
+                  id="descripcion"
+                  name="descripcion"
+                  rows="6"
+                  cols="60"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" max="9" id="telefono" required />
+              </div>
+              <div class="form-group">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="provincia">Provincia:</label>
+                <select id="provincia" disabled required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="provincia">Distrito:</label>
+                <select id="distrito" disabled required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" required />
+              </div>
+            </div>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-proveedores').close()"
+              id="btn-cancelar-usuario"
+            >
+              Cancelar
+            </button>
+            <button type="submit" id="btn-guardar-usuario">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="../js/localizacion.js"></script>
+    <script src="../js/fadeinup.js"></script>
   </body>
 </html>

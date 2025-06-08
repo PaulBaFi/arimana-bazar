@@ -192,7 +192,12 @@
       <div class="actions-section">
         <h1 class="main-title">Productos</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-producto">
+          <button
+            class="btn btn-primary"
+            onclick="
+            document.querySelector('#modal-productos').showModal()"
+            id="btn-nuevo-producto"
+          >
             <i class="fa-solid fa-user-plus"></i>
             Nuevo producto
           </button>
@@ -210,7 +215,7 @@
         </button>
       </div>
 
-      <table class="table">
+      <table class="table" id="table-productos">
         <thead>
           <tr>
             <th>ID</th>
@@ -317,6 +322,63 @@
         </tbody>
       </table>
     </main>
+
+    <dialog class="modal" id="modal-productos">
+      <div class="modal-content">
+        <h2 class="modal-title">Nuevo producto</h2>
+        <form method="dialog" id="usuario-form">
+          <div class="columnas-group">
+            <div class="columna1">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea
+                  id="descripcion"
+                  name="descripcion"
+                  rows="6"
+                  cols="60"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="text" id="precio" required />
+              </div>
+              <div class="form-group">
+                <label for="categoria">Categoria:</label>
+                <select id="categoria" required>
+                  <option>— Seleccionar —</option>
+                  <option value="">Electrónica</option>
+                  <option value="">Ropa</option>
+                  <option value="">Libros</option>
+                  <option value="">Juguetes</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="almacen">Almacén:</label>
+                <select id="almacen" required>
+                  <option>— Seleccionar —</option>
+                  <option value="">Almacén 1</option>
+                  <option value="">Almacén 2</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-productos').close()"
+              id="btn-cancelar-usuario"
+            >
+              Cancelar
+            </button>
+            <button type="submit" id="btn-guardar-usuario">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 
     <script src="../js/fadeinup.js"></script>
   </body>

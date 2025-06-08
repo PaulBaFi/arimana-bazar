@@ -192,7 +192,11 @@
       <div class="actions-section">
         <h1 class="main-title">Contratos</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-usuario">
+          <button
+            class="btn btn-primary"
+            onclick="document.querySelector('#modal-contratos').showModal()"
+            id="btn-nuevo-usuario"
+          >
             <i class="fa-solid fa-plus"></i>
             Nuevo contrato
           </button>
@@ -237,8 +241,50 @@
               </button>
             </td>
           </tr>
+          <tr>
+            <td>Temporal</td>
+            <td>2</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
+
+      <dialog class="modal" id="modal-contratos">
+        <div class="modal-content">
+          <h2 class="modal-title">Nuevo contrato</h2>
+          <form method="dialog" id="usuario-form">
+            <div class="columnas-group">
+              <div class="columna1">
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" id="nombre" required />
+                </div>
+              </div>
+            </div>
+            <div class="form-group-btns">
+              <button
+                type="button"
+                onclick="document.querySelector('#modal-contratos').close()"
+                id="btn-cancelar-usuario"
+              >
+                Cancelar
+              </button>
+              <button type="submit" id="btn-guardar-usuario">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
     </main>
+
+    <script src="../js/fadeinup.js"></script>
   </body>
 </html>

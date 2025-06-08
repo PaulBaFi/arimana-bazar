@@ -435,3 +435,128 @@ body {
     background-color: #f2f2f2;
     font-weight: 700;
 }
+
+dialog[open] {
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    @starting-style {
+        scale: 0;
+    }
+}
+
+dialog {
+    transition:
+        scale 0.3s ease,
+        display 0.3s ease allow-discrete;
+    scale: 0;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: none;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #202020;
+    margin-bottom: 1em;
+}
+
+.columnas-group {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #404040;
+    width: 160px;
+}
+
+.columna2 .form-group label {
+    width: 140px;
+}
+
+.form-group textarea {
+    field-sizing: content;
+    resize: none;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    flex: 1;
+    padding: 0.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #202020;
+    outline: none;
+    width: 250px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0FC2BF;
+}
+
+.form-group select {
+    appearance: none;
+    background-image: url('../img/icons/AngleDown.png');
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1em;
+    padding-right: 2em;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5em;
+}
+
+.form-group-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.form-group-btns button {
+    padding: 0.5em 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.form-group-btns button[type="submit"] {
+    background-color: #0FC2BF;
+    color: white;
+}

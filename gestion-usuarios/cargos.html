@@ -192,7 +192,12 @@
       <div class="actions-section">
         <h1 class="main-title">Cargos</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-usuario">
+          <button
+            class="btn btn-primary"
+            onclick="
+            document.querySelector('#modal-cargos').showModal()"
+            id="btn-nuevo-usuario"
+          >
             <i class="fa-solid fa-plus"></i>
             Nuevo cargo
           </button>
@@ -261,7 +266,7 @@
             </td>
           </tr>
           <tr>
-            <td>Encargado de almacen</td>
+            <td>Encargado de almacén</td>
             <td>
               Gestiona el inventario, controla el ingreso y salida de productos
               y organiza el almacén.
@@ -294,8 +299,62 @@
               </button>
             </td>
           </tr>
+          <tr>
+            <td>Cajero</td>
+            <td>
+              Realiza operaciones de cobro, maneja efectivo y brinda atención
+              rápida y precisa a los clientes en el punto de venta.
+            </td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </main>
+
+    <dialog class="modal" id="modal-cargos">
+      <div class="modal-content">
+        <h2 class="modal-title">Nuevo cargo</h2>
+        <form method="dialog" id="usuario-form">
+          <div class="columnas-group">
+            <div class="columna1">
+              <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required />
+              </div>
+              <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea
+                  id="descripcion"
+                  name="descripcion"
+                  rows="6"
+                  cols="60"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-cargos').close()"
+              id="btn-cancelar-usuario"
+            >
+              Cancelar
+            </button>
+            <button type="submit" id="btn-guardar-usuario">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="../js/fadeinup.js"></script>
   </body>
 </html>

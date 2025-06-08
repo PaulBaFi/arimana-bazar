@@ -193,7 +193,12 @@
       <div class="actions-section">
         <h1 class="main-title">Usuarios</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-usuario">
+          <button
+            class="btn btn-primary"
+            onclick="
+            document.querySelector('#modal-usuario').showModal()"
+            id="btn-nuevo-usuario"
+          >
             <i class="fa-solid fa-user-plus"></i>
             Nuevo usuario
           </button>
@@ -219,15 +224,43 @@
             <th>DNI</th>
             <th>Teléfono</th>
             <th>Dirección</th>
+            <th>Ubicación</th>
             <th>Nacimiento</th>
             <th>Cargo</th>
             <th>Contrato</th>
             <th>Turno</th>
             <th>Tipo Usuario</th>
-            <th>..</th>
+            <th></th>
+            <!-- Columna para editar -->
+            <th></th>
+            <!-- Columna para eliminar -->
           </tr>
         </thead>
-        <tbody id="usuarios-body"></tbody>
+        <tbody id="usuarios-body">
+          <tr>
+            <td>1</td>
+            <td>Juan Gómez Pérez</td>
+            <td>12345678</td>
+            <td>987654321</td>
+            <td>Av. Principal 123</td>
+            <td>Lima - Lima - Lima</td>
+            <td>1990-01-01</td>
+            <td>Gerente</td>
+            <td>Tiempo completo</td>
+            <td>Mañana</td>
+            <td>Administrador</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </main>
 
@@ -333,32 +366,20 @@
             </div>
           </div>
           <div class="form-group-btns">
-            <button type="button" id="btn-cancelar-usuario">Cancelar</button>
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-usuario').close()"
+              id="btn-cancelar-usuario"
+            >
+              Cancelar
+            </button>
             <button type="submit" id="btn-guardar-usuario">Guardar</button>
           </div>
         </form>
       </div>
     </dialog>
 
-    <script src="../lib/data.js"></script>
-    <script src="../js/usuarios.js"></script>
     <script src="../js/localizacion.js"></script>
-    <script>
-      const button = document.querySelector("#btn-nuevo-usuario");
-      const dialog = document.querySelector("#modal-usuario");
-      const closeButton = document.querySelector("#btn-cancelar-usuario");
-
-      if (closeButton) {
-        closeButton.addEventListener("click", () => {
-          dialog.close();
-        });
-      }
-
-      if (dialog && button) {
-        button.addEventListener("click", () => {
-          dialog.showModal();
-        });
-      }
-    </script>
+    <script src="../js/fadeinup.js"></script>
   </body>
 </html>

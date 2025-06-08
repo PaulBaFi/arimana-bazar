@@ -194,7 +194,12 @@
       <div class="actions-section">
         <h1 class="main-title">Almacenes</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-almacen">
+          <button
+            class="btn btn-primary"
+            onclick="
+            document.querySelector('#modal-almacenes').showModal()"
+            id="btn-nuevo-almacen"
+          >
             <i class="fa-solid fa-user-plus"></i>
             Nuevo almacén
           </button>
@@ -212,7 +217,7 @@
         </button>
       </div>
 
-      <table class="table">
+      <table class="table" id="table-almacenes">
         <thead>
           <tr>
             <th>Nombre de Almacén</th>
@@ -223,7 +228,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Almacén Piso 1</td>
+            <td>Almacén 1</td>
             <td>Piso 1</td>
             <td>
               <button class="action-btn edit-btn">
@@ -237,7 +242,7 @@
             </td>
           </tr>
           <tr>
-            <td>Almacén Piso 2</td>
+            <td>Almacén 2</td>
             <td>Piso 2</td>
             <td>
               <button class="action-btn edit-btn">
@@ -252,6 +257,36 @@
           </tr>
         </tbody>
       </table>
+
+      <dialog class="modal" id="modal-almacenes">
+        <div class="modal-content">
+          <h2 class="modal-title">Nuevo cargo</h2>
+          <form method="dialog" id="usuario-form">
+            <div class="columnas-group">
+              <div class="columna1">
+                <div class="form-group">
+                  <label for="nombre">Nombre:</label>
+                  <input type="text" id="nombre" required />
+                </div>
+                <div class="form-group">
+                  <label for="ubicacion">Ubicacion:</label>
+                  <input type="text" id="ubicacion" required />
+                </div>
+              </div>
+            </div>
+            <div class="form-group-btns">
+              <button
+                type="button"
+                onclick="document.querySelector('#modal-almacenes').close()"
+                id="btn-cancelar-usuario"
+              >
+                Cancelar
+              </button>
+              <button type="submit" id="btn-guardar-usuario">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
     </main>
 
     <script src="../js/fadeinup.js"></script>
