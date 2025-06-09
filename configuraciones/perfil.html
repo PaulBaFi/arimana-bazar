@@ -6,6 +6,7 @@
     <title>Pefil de usuario | Arimana Bazar Ica</title>
 
     <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/perfil.css" />
     <link
       rel="shortcut icon"
       href="../img/SimpleLogo.png"
@@ -187,6 +188,153 @@
           Dashboard &nbsp;/&nbsp; Configuraciones &nbsp;/&nbsp;
           <span>Pefil de usuario</span>
         </p>
+      </div>
+
+      <div class="actions-section">
+        <h1 class="main-title">Perfil de usuario</h1>
+      </div>
+
+      <div class="main-content">
+        <div class="info-profile">
+          <img src="../img/user-f-xl.png" alt="" />
+
+          <div class="info-profile-center first">
+            <p>Juan Pérez Gomez</p>
+          </div>
+          <div class="info-profile-center last">
+            <p>juan.perez@gmail.com</p>
+          </div>
+          <div class="info-profile-group">
+            <b>DNI</b>
+            <p>12145678</p>
+          </div>
+          <div class="info-profile-group">
+            <b>Teléfono</b>
+            <p>912005678</p>
+          </div>
+          <div class="info-profile-group">
+            <b>Dirección</b>
+            <p>Av. Las Palmas 456</p>
+          </div>
+          <div class="info-profile-group">
+            <b>Cargo</b>
+            <p>Gerente</p>
+          </div>
+          <div class="info-profile-group">
+            <b>Contarto</b>
+            <p>Tiempo completo</p>
+          </div>
+        </div>
+
+        <form method="dialog" id="usuario-form">
+          <div class="columnas-group">
+            <div class="columna1">
+              <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" required />
+              </div>
+              <div class="form-group">
+                <label for="ape-paterno">Apellido paterno:</label>
+                <input type="text" id="ape-paterno" required />
+              </div>
+              <div class="form-group">
+                <label for="ape-materno">Apellido materno:</label>
+                <input type="text" id="ape-materno" required />
+              </div>
+              <div class="form-group">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" required />
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" required />
+              </div>
+              <div class="form-group">
+                <label for="calve">Clave:</label>
+                <input type="password" id="clave" required />
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" required />
+              </div>
+              <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" required />
+              </div>
+            </div>
+            <div class="columna2">
+              <div class="form-group">
+                <label for="departamento">Departamento:</label>
+                <select id="departamento" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="provincia">Provincia:</label>
+                <select id="provincia" disabled required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="provincia">Distrito:</label>
+                <select id="distrito" disabled required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nacimiento">Nacimiento:</label>
+                <input type="date" id="nacimiento" required />
+              </div>
+              <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <select id="cargo">
+                  <option value="">— Seleccionar —</option>
+                  <option value="">Gerente</option>
+                  <option value="">Administrador</option>
+                  <option value="">Asesor de ventas</option>
+                  <option value="">Encargado de almacen</option>
+                  <option value="">Encargado de marketing</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contrato">Contrato:</label>
+                <select id="contrato">
+                  <option value="">— Seleccionar —</option>
+                  <option value="">Tiempo completo</option>
+                  <option value="">Medio tiempo</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="turno">Turno:</label>
+                <select id="turno">
+                  <option value="">— Seleccionar —</option>
+                  <option value="mañana">Mañana</option>
+                  <option value="tarde">Tarde</option>
+                  <option value="noche">Noche</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="tipo-usuario">Tipo de usuario:</label>
+                <select id="tipo-usuario">
+                  <option value="">— Seleccionar —</option>
+                  <option value="admin">Administrador</option>
+                  <option value="empleado">Usuario estándar</option>
+                  <option value="empleado">Usuario sin acceso</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-usuario').close()"
+              id="btn-cancelar-usuario"
+            >
+              Cancelar
+            </button>
+            <button type="submit" id="btn-guardar-usuario">Guardar</button>
+          </div>
+        </form>
       </div>
     </main>
 

@@ -8,125 +8,136 @@
     --gold-accent: #00fff7;
 }
 
-.actions-section {
-    text-align: center;
-    padding: 5rem 1rem;
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 4rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
-.actions-section::before {
-    content: "";
+.row {
+    display: flex;
+    gap: 2em;
+}
+
+.card-info-empresa {
+    width: 100%;
+}
+
+.card-info-empresa-img {
+    width: 250px;
+    border-radius: .7em;
+}
+
+.copy {
+    border-top: 1px solid #dadada;
+    margin-top: 2em;
+    padding: 1em;
+}
+
+.mensaje-bienvenida {
+    background-color: #bbecf0;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+    color: #2d3748;
+    border-left: 5px solid #0FC2BF;
+    transition: all 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-media {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, var(--gold-accent), var(--accent-color));
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3em;
+}
+
+.social-btn {
+    width: 1.7em;
+    aspect-ratio: 1;
+    padding: 0 .3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2em;
+    color: #333333;
+    transition: all 100ms ease-in;
+    background: transparent;
+}
+
+.social-btn:nth-child(1):hover {
+    background: linear-gradient(45deg, #1352be, #00fff7);
+    color: white;
+}
+
+.social-btn:nth-child(2):hover {
+    background: linear-gradient(45deg, #be7413, #ff00c8);
+    color: white;
 }
 
 .main-title {
-    font-size: 4.2rem;
+    font-size: 2.2rem;
     font-weight: 800;
-    margin: 0;
     position: relative;
-    display: inline-block;
-    letter-spacing: 3px;
-    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
-    font-family: 'Playfair Display', serif;
 }
 
-.main-title::after {
-    content: '';
-    position: absolute;
-    width: 70%;
-    height: 5px;
-    bottom: -15px;
-    left: 15%;
-    background: var(--gold-accent);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+.info-empresa {
+    display: flex;
+    gap: 1em;
 }
 
-.main-title:hover::after {
-    transform: scaleX(1);
+.card-info-empresa {
+    padding: 2em;
+    border-radius: .7em;
+    border: 1px solid #dadada;
 }
 
+.title-info {
+    font-weight: 800;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+}
 
-.Infomacion-nosotros {
+.informacion-nosotros {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
-    padding: 4rem 0;
-    margin-bottom: 4rem;
+    gap: 2em;
+    margin-block: 1em 2rem;
 }
 
 .descripcion-nosotros {
     flex: 1;
     min-width: 350px;
-    font-size: 1.2rem;
-    text-align: justify;
-    padding: 40px;
+    padding: 3em;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    border-left: 6px solid var(--primary-color);
+    border-radius: .7em;
     position: relative;
-    line-height: 1.9;
     font-weight: 400;
-    font-family: 'Lora', 'Georgia', serif;
-    /* Nueva tipografía */
-    letter-spacing: 0.3px;
-    color: #444;
+    border: 1px solid #dadada;
 }
 
-.descripcion-nosotros::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -6px;
-    height: 100%;
-    width: 6px;
-    background: linear-gradient(to bottom, var(--primary-color), var(--gold-accent));
+.content-atencion p {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .5em;
+    margin-bottom: .5em;
 }
 
-
-.logo-container {
-    flex: 0 0 500px;
-    text-align: center;
-    padding: 30px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.logo-container:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-}
-
-.logo-container img {
-    width: 100%;
-    max-width: 450px;
-    height: auto;
+.informacion-nosotros img {
+    height: fit-content;
+    max-height: 200px;
+    aspect-ratio: 1;
     border-radius: 10px;
-    border: 3px solid var(--gold-accent);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    object-fit: contain;
-}
-
-.logo-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
 }
 
 
@@ -145,7 +156,7 @@
         font-size: 3rem;
     }
 
-    .Infomacion-nosotros {
+    .informacion-nosotros {
         gap: 40px;
     }
 
@@ -168,7 +179,7 @@
         letter-spacing: 2px;
     }
 
-    .Infomacion-nosotros {
+    .informacion-nosotros {
         flex-direction: column;
         padding: 3rem 0;
     }
@@ -213,7 +224,6 @@
 }
 
 
-
 .footer-content-container {
     display: flex;
     justify-content: space-around;
@@ -252,21 +262,6 @@
     text-align: center;
 }
 
-.social-media {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-media a {
-    color: #333;
-    font-size: 20px;
-    transition: color 0.3s;
-}
-
-.social-media a:hover {
-    color: #e74c3c;
-}
 
 .business-hours p {
     margin-bottom: 8px;
