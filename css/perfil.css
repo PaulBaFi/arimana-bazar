@@ -43,3 +43,17 @@
     color: #8F8F8F;
     margin-bottom: 2em;
 }
+
+#btn-cerrar-sesion {
+    background-color: #FEF2F2;
+    color: #CC0614;
+}
+
+#btn-cerrar-sesion:hover {
+    background-color: #ffe3e3;
+}
+
+.info-actualizar h3 {
+    margin-bottom: 1em;
+    font-size: 1.3em;
+}

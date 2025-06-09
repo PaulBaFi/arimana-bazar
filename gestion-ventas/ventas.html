@@ -33,6 +33,15 @@
         </li>
 
         <li>
+          <a href="../kardex/kardex.html">
+            <i class="fa-solid fa-warehouse"></i>
+            Kardex</a
+          >
+        </li>
+
+        <hr />
+
+        <li>
           <input type="checkbox" id="usuarios-toogle" />
           <label for="usuarios-toogle">
             Gestión de usuarios
@@ -76,7 +85,7 @@
             <li>
               <a href="../gestion-inventarios/categorias.html">
                 <i class="fa-solid fa-icons"></i>
-                Categorías
+                Cateogrías
               </a>
             </li>
             <li>
@@ -117,7 +126,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="ventas-toogle" checked />
+          <input type="checkbox" id="ventas-toogle" />
           <label for="ventas-toogle">
             Gestión de ventas
             <i class="fa-solid fa-chevron-right"></i>
@@ -155,6 +164,28 @@
               <a href="../configuraciones/perfil.html">
                 <i class="fa-solid fa-id-badge"></i>
                 Perfil de usuario
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="reportes-toggle" />
+          <label for="reportes-toggle">
+            Reportes
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../reportes/reportes-ventas.html">
+                <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                Reportes de ventas
+              </a>
+            </li>
+            <li>
+              <a href="../reportes/reportes-pedidos.html">
+                <i class="fa-solid fa-dolly"></i>
+                Reportes de pedidos
               </a>
             </li>
           </ul>
@@ -217,7 +248,80 @@
         </div>
       </div>
 
-      <table class="table" id="table-venta"></table>
+      <table class="table" id="table-venta">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tipo de pago</th>
+            <th>Cliente</th>
+            <th>Documento</th>
+            <th>Subtotal</th>
+            <th>IGV</th>
+            <th>Pago total</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Tarjeta de crédito</td>
+            <td>Juan Pérez</td>
+            <td>Boleta</td>
+            <td>S/ 150.00</td>
+            <td>S/ 27.00</td>
+            <td>S/ 177.00</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Efectivo</td>
+            <td>María Gómez</td>
+            <td>Factura</td>
+            <td>S/ 420.00</td>
+            <td>S/ 75.60</td>
+            <td>S/ 495.60</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Transferencia bancaria</td>
+            <td>Carlos Rodríguez</td>
+            <td>Factura</td>
+            <td>S/ 850.00</td>
+            <td>S/ 153.00</td>
+            <td>S/ 1003.00</td>
+            <td>
+              <button class="action-btn edit-btn">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+            <td>
+              <button class="action-btn delete-btn">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </main>
 
     <script src="../js/fadeinup.js"></script>

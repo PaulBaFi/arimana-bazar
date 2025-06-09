@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productos | Arimana Bazar Ica</title>
+    <title>Reportes de ventas | Arimana Bazar Ica</title>
 
     <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/layout-search.css" />
+    <link rel="stylesheet" href="../css/reportes.css" />
     <link
       rel="shortcut icon"
       href="../img/SimpleLogo.png"
@@ -169,7 +171,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="reportes-toggle" />
+          <input type="checkbox" id="reportes-toggle" checked />
           <label for="reportes-toggle">
             Reportes
             <i class="fa-solid fa-chevron-right"></i>
@@ -214,203 +216,54 @@
 
     <main class="main">
       <div class="breadcrumbs">
-        <p>
-          Dashboard &nbsp;/&nbsp; Gestión de inventarios &nbsp;/&nbsp;
-          <span>Productos</span>
-        </p>
+        Dashboard &nbsp;/&nbsp; Reportes &nbsp;/&nbsp;
+        <span>Reportes de ventas</span>
       </div>
 
       <div class="actions-section">
-        <h1 class="main-title">Productos</h1>
+        <h1 class="main-title">Reportes de ventas</h1>
         <div class="button-group">
-          <button
-            class="btn btn-primary"
-            onclick="
-            document.querySelector('#modal-productos').showModal()"
-            id="btn-nuevo-producto"
-          >
-            <i class="fa-solid fa-user-plus"></i>
-            Nuevo producto
+          <button class="btn btn-primary" id="btn-nuevo-cliente-juridico">
+            <i class="fa-solid fa-file-pdf"></i>
+            Generar reporte
           </button>
         </div>
       </div>
 
       <div class="search-container">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Buscar por ID o nombre..."
-        />
-        <button id="btn-search">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+        <div class="estadisticas-group full">
+          <div class="bar-group">
+            <label for="order">Generar reporte personalizado :</label>
+            <select name="order" id="">
+              <option>— Seleccionar —</option>
+              <option value=""></option>
+            </select>
+          </div>
+          <label for="from">
+            Desde
+            <input type="date" name="from" id="" />
+          </label>
+          <label for="to">
+            Hasta
+            <input type="date" name="to" id="" />
+          </label>
+        </div>
       </div>
 
-      <table class="table" id="table-productos">
+      <table class="table" id="table-reportes-ventas">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Categoría</th>
-            <th>Almacen</th>
-            <th></th>
-            <th></th>
+            <th>Ventas realizadas</th>
+            <th>Total en ventas</th>
+            <th>Costo de ventas</th>
+            <th>Ganancias</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mouse inalámbrico</td>
-            <td>Mouse ergonómico con conexión Bluetooth</td>
-            <td>S/ 89.90</td>
-            <td>Accesorios</td>
-            <td>Almacén 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Teclado mecánico</td>
-            <td>Teclado retroiluminado con switches azules</td>
-            <td>S/ 199.00</td>
-            <td>Periféricos</td>
-            <td>Almacén 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Laptop Lenovo</td>
-            <td>Laptop Ryzen 5, 8GB RAM, 256GB SSD</td>
-            <td>S/ 2,499.00</td>
-            <td>Equipos</td>
-            <td>Almacén 2</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Audífonos inalámbricos</td>
-            <td>Cancelación de ruido, estuche de carga</td>
-            <td>S/ 149.90</td>
-            <td>Audio</td>
-            <td>Almacén 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Silla ergonómica</td>
-            <td>Respaldo ajustable, soporte lumbar</td>
-            <td>S/ 459.00</td>
-            <td>Mobiliario</td>
-            <td>Almacén 2</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
     </main>
 
-    <dialog class="modal" id="modal-productos">
-      <div class="modal-content">
-        <h2 class="modal-title">Nuevo producto</h2>
-        <form method="dialog" id="usuario-form">
-          <div class="columnas-group">
-            <div class="columna1">
-              <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" required />
-              </div>
-              <div class="form-group">
-                <label for="descripcion">Descripción:</label>
-                <textarea
-                  id="descripcion"
-                  name="descripcion"
-                  rows="6"
-                  cols="60"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="precio">Precio:</label>
-                <input type="text" id="precio" required />
-              </div>
-              <div class="form-group">
-                <label for="categoria">Categoria:</label>
-                <select id="categoria" required>
-                  <option>— Seleccionar —</option>
-                  <option value="">Electrónica</option>
-                  <option value="">Ropa</option>
-                  <option value="">Libros</option>
-                  <option value="">Juguetes</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="almacen">Almacén:</label>
-                <select id="almacen" required>
-                  <option>— Seleccionar —</option>
-                  <option value="">Almacén 1</option>
-                  <option value="">Almacén 2</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group-btns">
-            <button
-              type="button"
-              onclick="document.querySelector('#modal-productos').close()"
-              id="btn-cancelar-usuario"
-            >
-              Cancelar
-            </button>
-            <button type="submit" id="btn-guardar-usuario">Guardar</button>
-          </div>
-        </form>
-      </div>
-    </dialog>
-
-    <script src="../js/fadeinup.js"></script>
+    <script src="./js/greeting.js"></script>
+    <script src="./js/fadeinup.js"></script>
   </body>
 </html>

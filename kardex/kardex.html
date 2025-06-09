@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productos | Arimana Bazar Ica</title>
+    <title>kardex | Arimana Bazar Ica</title>
 
     <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
     <link
       rel="shortcut icon"
       href="../img/SimpleLogo.png"
@@ -32,7 +33,7 @@
         </li>
 
         <li>
-          <a href="../kardex/kardex.html">
+          <a href="./kardex.html">
             <i class="fa-solid fa-warehouse"></i>
             Kardex</a
           >
@@ -214,24 +215,16 @@
 
     <main class="main">
       <div class="breadcrumbs">
-        <p>
-          Dashboard &nbsp;/&nbsp; Gestión de inventarios &nbsp;/&nbsp;
-          <span>Productos</span>
-        </p>
+        <p><i class="fa-solid fa-home"></i> &nbsp; / &nbsp; Kardex</p>
       </div>
 
       <div class="actions-section">
-        <h1 class="main-title">Productos</h1>
-        <div class="button-group">
-          <button
-            class="btn btn-primary"
-            onclick="
-            document.querySelector('#modal-productos').showModal()"
-            id="btn-nuevo-producto"
-          >
-            <i class="fa-solid fa-user-plus"></i>
-            Nuevo producto
-          </button>
+        <div>
+          <h1 class="main-title">Kardex</h1>
+          <p class="main-subtitle">
+            En el módulo KARDEX puede ver los movimientos y costos de entradas /
+            salidas de los productos.
+          </p>
         </div>
       </div>
 
@@ -239,178 +232,74 @@
         <input
           type="text"
           id="search-input"
-          placeholder="Buscar por ID o nombre..."
+          placeholder="Buscar por fecha, producto o descripcion..."
         />
         <button id="btn-search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <table class="table" id="table-productos">
+      <table class="table" id="table-usuarios">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Categoría</th>
-            <th>Almacen</th>
-            <th></th>
-            <th></th>
+            <th>Fecha</th>
+            <th>Producto</th>
+            <th>Descripcion</th>
+            <th>Entrada (u)</th>
+            <th>Cantidad entrada (u)</th>
+            <th>Salida (u)</th>
+            <th>Cantidad salida (u)</th>
+            <th>Inventario inicial</th>
+            <th>Inventario actual</th>
+            <th>Cantidad inventario</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="usuarios-body">
           <tr>
             <td>1</td>
-            <td>Mouse inalámbrico</td>
-            <td>Mouse ergonómico con conexión Bluetooth</td>
-            <td>S/ 89.90</td>
-            <td>Accesorios</td>
-            <td>Almacén 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
+            <td>2023-10-15</td>
+            <td>Laptop HP 15-dw1024la</td>
+            <td>Laptop 15.6" Core i5 8GB RAM 512GB SSD</td>
+            <td>5</td>
+            <td>S/ 2,450.00</td>
+            <td>2</td>
+            <td>S/ 2,450.00</td>
+            <td>3</td>
+            <td>6</td>
+            <td>S/ 14,700.00</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>Teclado mecánico</td>
-            <td>Teclado retroiluminado con switches azules</td>
-            <td>S/ 199.00</td>
-            <td>Periféricos</td>
-            <td>Almacén 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
+            <td>2023-10-16</td>
+            <td>Mouse Logitech M170</td>
+            <td>Mouse inalámbrico 2.4Ghz color negro</td>
+            <td>20</td>
+            <td>S/ 35.00</td>
+            <td>8</td>
+            <td>S/ 35.00</td>
+            <td>5</td>
+            <td>17</td>
+            <td>S/ 595.00</td>
           </tr>
           <tr>
             <td>3</td>
-            <td>Laptop Lenovo</td>
-            <td>Laptop Ryzen 5, 8GB RAM, 256GB SSD</td>
-            <td>S/ 2,499.00</td>
-            <td>Equipos</td>
-            <td>Almacén 2</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
+            <td>2023-10-17</td>
+            <td>Teclado Redragon Kumara K552</td>
+            <td>Teclado mecánico retroiluminado</td>
+            <td>10</td>
+            <td>S/ 180.00</td>
             <td>4</td>
-            <td>Audífonos inalámbricos</td>
-            <td>Cancelación de ruido, estuche de carga</td>
-            <td>S/ 149.90</td>
-            <td>Audio</td>
-            <td>Almacén 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Silla ergonómica</td>
-            <td>Respaldo ajustable, soporte lumbar</td>
-            <td>S/ 459.00</td>
-            <td>Mobiliario</td>
-            <td>Almacén 2</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
+            <td>S/ 180.00</td>
+            <td>2</td>
+            <td>8</td>
+            <td>S/ 1,440.00</td>
           </tr>
         </tbody>
       </table>
     </main>
 
-    <dialog class="modal" id="modal-productos">
-      <div class="modal-content">
-        <h2 class="modal-title">Nuevo producto</h2>
-        <form method="dialog" id="usuario-form">
-          <div class="columnas-group">
-            <div class="columna1">
-              <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" required />
-              </div>
-              <div class="form-group">
-                <label for="descripcion">Descripción:</label>
-                <textarea
-                  id="descripcion"
-                  name="descripcion"
-                  rows="6"
-                  cols="60"
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="precio">Precio:</label>
-                <input type="text" id="precio" required />
-              </div>
-              <div class="form-group">
-                <label for="categoria">Categoria:</label>
-                <select id="categoria" required>
-                  <option>— Seleccionar —</option>
-                  <option value="">Electrónica</option>
-                  <option value="">Ropa</option>
-                  <option value="">Libros</option>
-                  <option value="">Juguetes</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="almacen">Almacén:</label>
-                <select id="almacen" required>
-                  <option>— Seleccionar —</option>
-                  <option value="">Almacén 1</option>
-                  <option value="">Almacén 2</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="form-group-btns">
-            <button
-              type="button"
-              onclick="document.querySelector('#modal-productos').close()"
-              id="btn-cancelar-usuario"
-            >
-              Cancelar
-            </button>
-            <button type="submit" id="btn-guardar-usuario">Guardar</button>
-          </div>
-        </form>
-      </div>
-    </dialog>
-
-    <script src="../js/fadeinup.js"></script>
+    <script src="./js/greeting.js"></script>
+    <script src="./js/fadeinup.js"></script>
   </body>
 </html>

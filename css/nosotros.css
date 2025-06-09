@@ -32,6 +32,7 @@
     border-top: 1px solid #dadada;
     margin-top: 2em;
     padding: 1em;
+    color: #666;
 }
 
 .mensaje-bienvenida {
@@ -126,10 +127,14 @@
 
 .content-atencion p {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: start;
     gap: .5em;
     margin-bottom: .5em;
+}
+
+.content-atencion p i {
+    margin-top: .1em;
 }
 
 .informacion-nosotros img {

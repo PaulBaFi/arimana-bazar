@@ -1,0 +1,31 @@
+.estadisticas-group {
+    align-items: center;
+    margin-left: 0;
+    padding-inline: 1em;
+}
+
+.estadisticas-group.full {
+    width: 100%;
+}
+
+.estadisticas-group.full label:first-child {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.bar-group {
+    display: flex;
+    gap: .5em;
+    width: 100%;
+}
+
+.bar-group select {
+    width: 100% !important;
+    max-width: 100%;
+    appearance: none;
+    background-image: url('../img/icons/AngleDown.png');
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1em;
+    padding-right: 2em;
+}
