@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="../css/global.css" />
     <link rel="stylesheet" href="../css/roles.css" />
-    <link rel="stylesheet" href="../css/switch-slide.css" />
     <link
       rel="shortcut icon"
       href="../img/SimpleLogo.png"
@@ -300,22 +299,496 @@
           </tbody>
         </table>
 
-        <div class="permisos">
-          <h4 class="list-title">Lista de permisos</h4>
-          <label class="switch-container" for="i">
-            <label class="switch" for="i">
-              <input type="checkbox" id="i" />
-              <span class="slider"></span>
-            </label>
-            <span class="switch-label">Añadir usuarios</span>
-          </label>
-          <label class="switch-container" for="e">
-            <label class="switch" for="e">
-              <input type="checkbox" id="e" checked />
-              <span class="slider"></span>
-            </label>
-            <span class="switch-label">Eliminar usuarios</span>
-          </label>
+        <div class="permisos-section">
+          <h3 class="permisos-title">Configuración de Permisos</h3>
+          <div class="permisos-grid">
+            <!-- Cuadro 1: Interfaz Usuario -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-users"></i> Interfaz Usuario
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir usuarios</span>
+                  <label class="switch">
+                    <input type="checkbox" id="usuario-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar usuarios</span>
+                  <label class="switch">
+                    <input type="checkbox" id="usuario-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar usuarios</span>
+                  <label class="switch">
+                    <input type="checkbox" id="usuario-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar usuarios</span>
+                  <label class="switch">
+                    <input type="checkbox" id="usuario-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 2: Interfaz Roles -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-tags"></i> Interfaz Roles
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir roles</span>
+                  <label class="switch">
+                    <input type="checkbox" id="roles-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar roles</span>
+                  <label class="switch">
+                    <input type="checkbox" id="roles-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar roles</span>
+                  <label class="switch">
+                    <input type="checkbox" id="roles-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar roles</span>
+                  <label class="switch">
+                    <input type="checkbox" id="roles-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 3: Interfaz Cargos -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-briefcase"></i> Interfaz Cargos
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir cargos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="cargos-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar cargos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="cargos-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar cargos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="cargos-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar cargos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="cargos-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 4: Interfaz Contrato -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-file-signature"></i> Interfaz Contrato
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir contrato</span>
+                  <label class="switch">
+                    <input type="checkbox" id="contrato-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar contrato</span>
+                  <label class="switch">
+                    <input type="checkbox" id="contrato-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar contrato</span>
+                  <label class="switch">
+                    <input type="checkbox" id="contrato-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar contrato</span>
+                  <label class="switch">
+                    <input type="checkbox" id="contrato-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 5: Interfaz Categorias -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-icons"></i> Interfaz Categorias
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir categorias</span>
+                  <label class="switch">
+                    <input type="checkbox" id="categorias-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar categorias</span>
+                  <label class="switch">
+                    <input type="checkbox" id="categorias-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar categorias</span>
+                  <label class="switch">
+                    <input type="checkbox" id="categorias-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar categorias</span>
+                  <label class="switch">
+                    <input type="checkbox" id="categorias-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 6: Interfaz Productos -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-boxes-stacked"></i> Interfaz Productos
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir productos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="productos-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar productos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="productos-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar productos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="productos-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar productos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="productos-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 7: Interfaz Almacenes -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-boxes-packing"></i> Interfaz Almacenes
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir almacenes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="almacenes-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar almacenes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="almacenes-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar almacenes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="almacenes-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar almacenes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="almacenes-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 8: Interfaz Proveedores -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-user-tie"></i> Interfaz Proveedores
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir proveedores</span>
+                  <label class="switch">
+                    <input type="checkbox" id="proveedores-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar proveedores</span>
+                  <label class="switch">
+                    <input type="checkbox" id="proveedores-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar proveedores</span>
+                  <label class="switch">
+                    <input type="checkbox" id="proveedores-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar proveedores</span>
+                  <label class="switch">
+                    <input type="checkbox" id="proveedores-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 9: Interfaz Pedidos -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-cart-shopping"></i> Interfaz Pedidos
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="pedidos-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="pedidos-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="pedidos-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="pedidos-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 10: Interfaz Clientes -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-user-plus"></i> Interfaz Clientes
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir clientes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="clientes-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar clientes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="clientes-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar clientes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="clientes-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar clientes</span>
+                  <label class="switch">
+                    <input type="checkbox" id="clientes-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 11: Interfaz Ventas -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-cash-register"></i> Interfaz Ventas
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir ventas</span>
+                  <label class="switch">
+                    <input type="checkbox" id="ventas-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar ventas</span>
+                  <label class="switch">
+                    <input type="checkbox" id="ventas-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar ventas</span>
+                  <label class="switch">
+                    <input type="checkbox" id="ventas-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar ventas</span>
+                  <label class="switch">
+                    <input type="checkbox" id="ventas-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 12: Interfaz Perfil Usuario -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-id-badge"></i>
+                Interfaz Perfil Usuario
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir perfil usuario</span>
+                  <label class="switch">
+                    <input type="checkbox" id="perfil usuario-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar perfil usuario</span>
+                  <label class="switch">
+                    <input type="checkbox" id="perfil usuario-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar perfil usuario</span>
+                  <label class="switch">
+                    <input type="checkbox" id="perfil usuario-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar perfil usuario</span>
+                  <label class="switch">
+                    <input type="checkbox" id="perfil usuario-delete" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+
+            <!-- Cuadro 13: Interfaz Reporte Pedidos -->
+            <div class="permiso-card">
+              <h4 class="permiso-header">
+                <i class="fa-solid fa-file-invoice"></i> Interfaz Reporte
+                Pedidos
+              </h4>
+              <div class="permiso-options">
+                <label class="switch-container">
+                  <span class="switch-label">Añadir reporte pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="reporte pedidos-add" />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Mostrar reporte pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="reporte pedidos-view" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Editar reporte pedidos</span>
+                  <label class="switch">
+                    <input type="checkbox" id="reporte pedidos-edit" checked />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+                <label class="switch-container">
+                  <span class="switch-label">Eliminar reporte pedidos</span>
+                  <label class="switch">
+                    <input
+                      type="checkbox"
+                      id="reporte pedidos-delete"
+                      checked
+                    />
+                    <span class="slider"></span>
+                  </label>
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>

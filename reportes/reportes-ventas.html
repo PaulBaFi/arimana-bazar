@@ -17,6 +17,12 @@
       src="https://kit.fontawesome.com/aeeba1d16d.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <nav class="navbar">
@@ -223,7 +229,11 @@
       <div class="actions-section">
         <h1 class="main-title">Reportes de ventas</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-cliente-juridico">
+          <button
+            class="btn btn-primary"
+            onclick="exportarPDF()"
+            id="btn-nuevo-cliente-juridico"
+          >
             <i class="fa-solid fa-file-pdf"></i>
             Generar reporte
           </button>
@@ -259,7 +269,9 @@
             <th>Ganancias</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          <!-- filas dinámicas -->
+        </tbody>
       </table>
     </main>
 
