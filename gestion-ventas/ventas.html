@@ -126,7 +126,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="ventas-toogle" />
+          <input type="checkbox" id="ventas-toogle" checked />
           <label for="ventas-toogle">
             Gestión de ventas
             <i class="fa-solid fa-chevron-right"></i>
@@ -224,8 +224,12 @@
       <div class="actions-section">
         <h1 class="main-title">Ventas</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nueva-venta">
-            <i class="fa-solid fa-user-plus"></i>
+          <button
+            class="btn btn-primary"
+            onclick="document.querySelector('#modal-ventas').showModal()"
+            id="btn-nueva-venta"
+          >
+            <i class="fa-solid fa-cash-register"></i>
             Nueva venta
           </button>
         </div>
@@ -253,12 +257,13 @@
           <tr>
             <th>ID</th>
             <th>Tipo de pago</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
             <th>Cliente</th>
             <th>Documento</th>
             <th>Subtotal</th>
             <th>IGV</th>
             <th>Pago total</th>
-            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -266,6 +271,8 @@
           <tr>
             <td>1</td>
             <td>Tarjeta de crédito</td>
+            <td>Mouse Logitech</td>
+            <td>2</td>
             <td>Juan Pérez</td>
             <td>Boleta</td>
             <td>S/ 150.00</td>
@@ -276,15 +283,12 @@
                 <i class="fas fa-edit"></i>
               </button>
             </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
           </tr>
           <tr>
             <td>2</td>
             <td>Efectivo</td>
+            <td>Teclado mecánico</td>
+            <td>3</td>
             <td>María Gómez</td>
             <td>Factura</td>
             <td>S/ 420.00</td>
@@ -295,15 +299,12 @@
                 <i class="fas fa-edit"></i>
               </button>
             </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
           </tr>
           <tr>
             <td>3</td>
             <td>Transferencia bancaria</td>
+            <td>Monitor 24"</td>
+            <td>1</td>
             <td>Carlos Rodríguez</td>
             <td>Factura</td>
             <td>S/ 850.00</td>
@@ -314,15 +315,54 @@
                 <i class="fas fa-edit"></i>
               </button>
             </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
           </tr>
         </tbody>
       </table>
     </main>
+
+    <dialog class="modal" id="modal-ventas">
+      <div class="modal-content">
+        <h2 class="modal-title">Nueva venta</h2>
+        <form method="dialog" id="venta-form">
+          <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <select id="cliente" required>
+              <option value="">Seleccione un cliente</option>
+              <!-- Clientes dinámicos aquí -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="producto">Producto:</label>
+            <select id="producto" required>
+              <option value="">Seleccione un producto</option>
+              <!-- Productos dinámicos aquí -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" required min="1" />
+          </div>
+          <div class="form-group">
+            <label for="tipo-pago">Tipo de pago:</label>
+            <select id="tipo-pago" required>
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta de Credito/Debito</option>
+              <option value="transferencia">Transferencia Bancaria</option>
+              <option value="transferencia">Yape/Plin</option>
+            </select>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-ventas').close()"
+            >
+              Cancelar
+            </button>
+            <button type="submit">Registrar venta</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 
     <script src="../js/fadeinup.js"></script>
   </body>

@@ -104,7 +104,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="pedidos-toogle" />
+          <input type="checkbox" id="pedidos-toogle" checked />
           <label for="pedidos-toogle">
             Gestión de pedidos
             <i class="fa-solid fa-chevron-right"></i>
@@ -224,8 +224,12 @@
       <div class="actions-section">
         <h1 class="main-title">Pedidos</h1>
         <div class="button-group">
-          <button class="btn btn-primary" id="btn-nuevo-usuario">
-            <i class="fa-solid fa-user-plus"></i>
+          <button
+            class="btn btn-primary"
+            onclick="document.querySelector('#modal-pedidos').showModal()"
+            id="btn-nuevo-usuario"
+          >
+            <i class="fa-solid fa-cart-plus"></i>
             Nuevo pedido
           </button>
         </div>
@@ -291,12 +295,52 @@
             </tr>
           </tbody>
         </table>
-
-        <div class="estadisticas">
-          <h4 class="list-title">Estadisticas</h4>
-        </div>
       </div>
     </main>
+
+    <dialog class="modal" id="modal-pedidos">
+      <div class="modal-content">
+        <h2 class="modal-title">Nuevo pedido</h2>
+        <form method="dialog" id="pedido-form">
+          <div class="form-group">
+            <label for="cliente">Cliente:</label>
+            <select id="cliente" required>
+              <option value="">Seleccione un cliente</option>
+              <!-- Clientes dinámicos aquí -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="producto">Producto:</label>
+            <select id="producto" required>
+              <option value="">Seleccione un producto</option>
+              <!-- Productos dinámicos aquí -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" required min="1" />
+          </div>
+          <div class="form-group">
+            <label for="tipo-pago">Tipo de pago:</label>
+            <select id="tipo-pago" required>
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta de Credito/Debito</option>
+              <option value="transferencia">Transferencia Bancaria</option>
+              <option value="transferencia">Yape/Plin</option>
+            </select>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-pedidos').close()"
+            >
+              Cancelar
+            </button>
+            <button type="submit">Realizar pedido</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 
     <script src="../js/fadeinup.js"></script>
   </body>

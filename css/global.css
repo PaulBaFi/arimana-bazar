@@ -23,8 +23,9 @@ body {
 }
 
 hr {
-    background-color: #f8f8f8;
     margin-block: 1em;
+    border: none;
+    border-bottom: 1px solid #ddd;
 }
 
 .breadcrumbs {
