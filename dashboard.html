@@ -22,20 +22,58 @@
 
       <ul class="nav-links">
         <li>
-          <a href="./dashboard.html">
+          <a href="./principal.html">
             <i class="fa-solid fa-home"></i>
-            Dashboard</a
+            Principal</a
           >
         </li>
 
         <li>
-          <a href="./kardex/kardex.html">
-            <i class="fa-solid fa-warehouse"></i>
-            Kardex</a
+          <a href="./dashboard.html">
+            <i class="fa-solid fa-chart-simple"></i>
+            Dashboard</a
           >
         </li>
 
         <hr />
+
+        <li>
+          <input type="checkbox" id="comerciales-toogle" />
+          <label for="comerciales-toogle">
+            Relaciones comerciales
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./relaciones-comerciales/persona.html">
+                <i class="fa-solid fa-user"></i>
+                Persona
+              </a>
+            </li>
+            <li>
+              <a href="./relaciones-comerciales/empresa.html">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="recursos-h-toogle" />
+          <label for="recursos-h-toogle">
+            Recursos Humanos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="./recursos-humanos/empleados.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Empleados
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <input type="checkbox" id="usuarios-toogle" />
@@ -129,12 +167,6 @@
           </label>
           <ul class="submenu">
             <li>
-              <a href="./gestion-ventas/clientes.html">
-                <i class="fa-solid fa-user-plus"></i>
-                Clientes
-              </a>
-            </li>
-            <li>
               <a href="./gestion-ventas/ventas.html">
                 <i class="fa-solid fa-cash-register"></i>
                 Ventas
@@ -184,6 +216,12 @@
                 Reportes de pedidos
               </a>
             </li>
+            <li>
+              <a href="./reportes/kardex.html">
+                <i class="fa-solid fa-warehouse"></i>
+                Kardex</a
+              >
+            </li>
           </ul>
         </li>
       </ul>
@@ -216,118 +254,6 @@
 
       <div class="titulo-interfaz">
         <h1 class="main-title">Dashboard</h1>
-      </div>
-
-      <div class="mensaje-bienvenida">
-        <p class="mensaje-title" id="greeting"></p>
-        <p class="mensaje-descripcion">
-          Aqui encontraras distintos atajos para acceder a cada modulo del
-          sistema
-        </p>
-      </div>
-
-      <div class="dashboard-grid">
-        <a
-          href="./gestion-usuarios/usuarios.html"
-          class="dashboard-card usuarios"
-        >
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Usuario.png" alt="Usuarios" />
-          </div>
-          <h3 class="card-title">Usuarios</h3>
-          <div class="card-count">3</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
-
-        <a href="./gestion-usuarios/roles.html" class="dashboard-card roles">
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Roles.png" alt="Roles" />
-          </div>
-          <h3 class="card-title">Roles</h3>
-          <div class="card-count">3</div>
-          <p class="card-subtitle">Tipos de roles</p>
-        </a>
-
-        <a
-          href="./gestion-pedidos/proveedores.html"
-          class="dashboard-card Proveedores"
-        >
-          <div class="card-icon">
-            <img
-              src="./img/Iconos-dashboard/Proveedores.png"
-              alt="Proveedores"
-            />
-          </div>
-          <h3 class="card-title">Proveedores</h3>
-          <div class="card-count">6</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
-
-        <a
-          href="./gestion-ventas/clientes.html"
-          class="dashboard-card Clientes"
-        >
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Clientes.png" alt="Clientes" />
-          </div>
-          <h3 class="card-title">Clientes</h3>
-          <div class="card-count">15</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
-
-        <a
-          href="./gestion-inventarios/categorias.html"
-          class="dashboard-card Categorias"
-        >
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Categorias.png" alt="Categorias" />
-          </div>
-          <h3 class="card-title">Categorias</h3>
-          <div class="card-count">7</div>
-          <p class="card-subtitle">Registradas</p>
-        </a>
-
-        <a
-          href="./gestion-inventarios/productos.html"
-          class="dashboard-card productos"
-        >
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Productos.png" alt="Productos" />
-          </div>
-          <h3 class="card-title">Productos</h3>
-          <div class="card-count">150</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
-
-        <a
-          href="./gestion-inventarios/almacenes.html"
-          class="dashboard-card almacenes"
-        >
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Almacen.png" alt="Almacenes" />
-          </div>
-          <h3 class="card-title">Almacenes</h3>
-          <div class="card-count">2</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
-
-        <a href="./gestion-pedidos/pedidos.html" class="dashboard-card Pedidos">
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Pedidos.png" alt="Pedidos" />
-          </div>
-          <h3 class="card-title">Pedidos</h3>
-          <div class="card-count">20</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
-
-        <a href="./" class="dashboard-card Reportes">
-          <div class="card-icon">
-            <img src="./img/Iconos-dashboard/Reportes.png" alt="Reportes" />
-          </div>
-          <h3 class="card-title">Reportes</h3>
-          <div class="card-count">10</div>
-          <p class="card-subtitle">Registrados</p>
-        </a>
       </div>
     </main>
 

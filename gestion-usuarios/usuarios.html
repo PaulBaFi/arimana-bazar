@@ -26,20 +26,58 @@
 
       <ul class="nav-links">
         <li>
-          <a href="../dashboard.html">
+          <a href="../principal.html">
             <i class="fa-solid fa-home"></i>
-            Dashboard</a
+            Principal</a
           >
         </li>
 
         <li>
-          <a href="../kardex/kardex.html">
-            <i class="fa-solid fa-warehouse"></i>
-            Kardex</a
+          <a href="../dashboard.html">
+            <i class="fa-solid fa-chart-simple"></i>
+            Dashboard</a
           >
         </li>
 
         <hr />
+
+        <li>
+          <input type="checkbox" id="comerciales-toogle" />
+          <label for="comerciales-toogle">
+            Relaciones comerciales
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../relaciones-comerciales/persona.html">
+                <i class="fa-solid fa-user"></i>
+                Persona
+              </a>
+            </li>
+            <li>
+              <a href="../relaciones-comerciales/empresa.html">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="recursos-h-toogle" />
+          <label for="recursos-h-toogle">
+            Recursos Humanos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../recursos-humanos/empleados.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Empleados
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <input type="checkbox" id="usuarios-toogle" checked />
@@ -133,12 +171,6 @@
           </label>
           <ul class="submenu">
             <li>
-              <a href="../gestion-ventas/clientes.html">
-                <i class="fa-solid fa-user-plus"></i>
-                Clientes
-              </a>
-            </li>
-            <li>
               <a href="../gestion-ventas/ventas.html">
                 <i class="fa-solid fa-cash-register"></i>
                 Ventas
@@ -187,6 +219,12 @@
                 <i class="fa-solid fa-dolly"></i>
                 Reportes de pedidos
               </a>
+            </li>
+            <li>
+              <a href="../reportes/kardex.html">
+                <i class="fa-solid fa-warehouse"></i>
+                Kardex</a
+              >
             </li>
           </ul>
         </li>
@@ -247,52 +285,22 @@
         </button>
       </div>
 
-      <table class="table" id="table-usuarios">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombres y apellidos</th>
-            <th>DNI</th>
-            <th>Teléfono</th>
-            <th>Dirección</th>
-            <th>Ubicación</th>
-            <th>Nacimiento</th>
-            <th>Cargo</th>
-            <th>Contrato</th>
-            <th>Turno</th>
-            <th>Tipo Usuario</th>
-            <th></th>
-            <!-- Columna para editar -->
-            <th></th>
-            <!-- Columna para eliminar -->
-          </tr>
-        </thead>
-        <tbody id="usuarios-body">
-          <tr>
-            <td>1</td>
-            <td>Juan Gómez Pérez</td>
-            <td>12345678</td>
-            <td>987654321</td>
-            <td>Av. Principal 123</td>
-            <td>Lima - Lima - Lima</td>
-            <td>1990-01-01</td>
-            <td>Gerente</td>
-            <td>Tiempo completo</td>
-            <td>Mañana</td>
-            <td>Administrador</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="table" id="table-usuarios">
+          <thead>
+            <tr>
+              <th>Empleado</th>
+              <th>DNI</th>
+              <th>Tipo Usuario</th>
+              <th>Correo</th>
+              <th>Clave</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </main>
 
     <dialog class="modal" id="modal-usuario">
@@ -302,100 +310,28 @@
           <div class="columnas-group">
             <div class="columna1">
               <div class="form-group">
-                <label for="nombres">Nombres:</label>
-                <input type="text" id="nombres" required />
-              </div>
-              <div class="form-group">
-                <label for="ape-paterno">Apellido paterno:</label>
-                <input type="text" id="ape-paterno" required />
-              </div>
-              <div class="form-group">
-                <label for="ape-materno">Apellido materno:</label>
-                <input type="text" id="ape-materno" required />
-              </div>
-              <div class="form-group">
-                <label for="dni">DNI:</label>
-                <input type="text" id="dni" required />
-              </div>
-              <div class="form-group">
-                <label for="correo">Correo:</label>
-                <input type="email" id="correo" required />
-              </div>
-              <div class="form-group">
-                <label for="calve">Clave:</label>
-                <input type="password" id="clave" required />
-              </div>
-              <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" id="telefono" required />
-              </div>
-              <div class="form-group">
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" required />
-              </div>
-            </div>
-            <div class="columna2">
-              <div class="form-group">
-                <label for="departamento">Departamento:</label>
-                <select id="departamento" required>
+                <label for="empleado">Empleado:</label>
+                <select id="empleado" required>
                   <option value="">— Seleccionar —</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="provincia">Provincia:</label>
-                <select id="provincia" disabled required>
-                  <option value="">— Seleccionar —</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="provincia">Distrito:</label>
-                <select id="distrito" disabled required>
-                  <option value="">— Seleccionar —</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="nacimiento">Nacimiento:</label>
-                <input type="date" id="nacimiento" required />
-              </div>
-              <div class="form-group">
-                <label for="cargo">Cargo:</label>
-                <select id="cargo">
-                  <option value="">— Seleccionar —</option>
-                  <option value="">Gerente</option>
-                  <option value="">Administrador</option>
-                  <option value="">Asesor de ventas</option>
-                  <option value="">Encargado de almacen</option>
-                  <option value="">Encargado de marketing</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="contrato">Contrato:</label>
-                <select id="contrato">
-                  <option value="">— Seleccionar —</option>
-                  <option value="">Tiempo completo</option>
-                  <option value="">Medio tiempo</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="turno">Turno:</label>
-                <select id="turno">
-                  <option value="">— Seleccionar —</option>
-                  <option value="mañana">Mañana</option>
-                  <option value="tarde">Tarde</option>
-                  <option value="noche">Noche</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="tipo-usuario">Tipo de usuario:</label>
-                <select id="tipo-usuario">
+                <select id="tipo-usuario" required>
                   <option value="">— Seleccionar —</option>
-                  <option value="admin">Administrador</option>
-                  <option value="empleado">Usuario estándar</option>
-                  <option value="empleado">Usuario sin acceso</option>
                 </select>
+              </div>
+              <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" maxlength="60" required />
+              </div>
+              <div class="form-group">
+                <label for="clave">Clave:</label>
+                <input type="password" id="clave" maxlength="50" required />
               </div>
             </div>
           </div>
+
           <div class="form-group-btns">
             <button
               type="button"

@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Almacenes | Arimana Bazar Ica</title>
+    <title>kardex | Arimana Bazar Ica</title>
 
     <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
     <link
       rel="shortcut icon"
       href="../img/SimpleLogo.png"
@@ -113,7 +114,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="inventarios-toogle" checked />
+          <input type="checkbox" id="inventarios-toogle" />
           <label for="inventarios-toogle">
             Gestión de inventarios
             <i class="fa-solid fa-chevron-right"></i>
@@ -170,6 +171,12 @@
           </label>
           <ul class="submenu">
             <li>
+              <a href="../gestion-ventas/clientes.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Clientes
+              </a>
+            </li>
+            <li>
               <a href="../gestion-ventas/ventas.html">
                 <i class="fa-solid fa-cash-register"></i>
                 Ventas
@@ -201,7 +208,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="reportes-toggle" />
+          <input type="checkbox" id="reportes-toggle" checked />
           <label for="reportes-toggle">
             Reportes
             <i class="fa-solid fa-chevron-right"></i>
@@ -252,24 +259,16 @@
 
     <main class="main">
       <div class="breadcrumbs">
-        <p>
-          Dashboard &nbsp;/&nbsp; Gestión de inventarios &nbsp;/&nbsp;
-          <span>Almacenes</span>
-        </p>
+        <p><i class="fa-solid fa-home"></i> &nbsp; / &nbsp; Kardex</p>
       </div>
 
       <div class="actions-section">
-        <h1 class="main-title">Almacenes</h1>
-        <div class="button-group">
-          <button
-            class="btn btn-primary"
-            onclick="
-            document.querySelector('#modal-almacenes').showModal()"
-            id="btn-nuevo-almacen"
-          >
-            <i class="fa-solid fa-plus"></i>
-            Nuevo almacén
-          </button>
+        <div>
+          <h1 class="main-title">Kardex</h1>
+          <p class="main-subtitle">
+            En el módulo KARDEX puede ver los movimientos y costos de entradas /
+            salidas de los productos.
+          </p>
         </div>
       </div>
 
@@ -277,83 +276,73 @@
         <input
           type="text"
           id="search-input"
-          placeholder="Buscar por ID o nombre de almacen..."
+          placeholder="Buscar por fecha, producto o descripcion..."
         />
         <button id="btn-search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <table class="table" id="table-almacenes">
-        <thead>
-          <tr>
-            <th>Nombre de Almacén</th>
-            <th>Ubicación</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Almacén 1</td>
-            <td>Piso 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Almacén 2</td>
-            <td>Piso 2</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <dialog class="modal" id="modal-almacenes">
-        <div class="modal-content">
-          <h2 class="modal-title">Nuevo cargo</h2>
-          <form method="dialog" id="usuario-form">
-            <div class="columnas-group">
-              <div class="columna1">
-                <div class="form-group">
-                  <label for="nombre">Nombre:</label>
-                  <input type="text" id="nombre" required />
-                </div>
-                <div class="form-group">
-                  <label for="ubicacion">Ubicacion:</label>
-                  <input type="text" id="ubicacion" required />
-                </div>
-              </div>
-            </div>
-            <div class="form-group-btns">
-              <button
-                type="button"
-                onclick="document.querySelector('#modal-almacenes').close()"
-                id="btn-cancelar-usuario"
-              >
-                Cancelar
-              </button>
-              <button type="submit" id="btn-guardar-usuario">Guardar</button>
-            </div>
-          </form>
-        </div>
-      </dialog>
+      <div class="table-container">
+        <table class="table" id="table-usuarios">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Producto</th>
+              <th>Descripcion</th>
+              <th>Entrada (u)</th>
+              <th>Cantidad entrada (u)</th>
+              <th>Salida (u)</th>
+              <th>Cantidad salida (u)</th>
+              <th>Inventario inicial</th>
+              <th>Inventario actual</th>
+              <th>Cantidad inventario</th>
+            </tr>
+          </thead>
+          <tbody id="usuarios-body">
+            <tr>
+              <td>1</td>
+              <td>2023-10-15</td>
+              <td>Laptop HP 15-dw1024la</td>
+              <td>Laptop 15.6" Core i5 8GB RAM 512GB SSD</td>
+              <td>5</td>
+              <td>S/ 2,450.00</td>
+              <td>2</td>
+              <td>S/ 2,450.00</td>
+              <td>3</td>
+              <td>6</td>
+              <td>S/ 14,700.00</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2023-10-16</td>
+              <td>Mouse Logitech M170</td>
+              <td>Mouse inalámbrico 2.4Ghz color negro</td>
+              <td>20</td>
+              <td>S/ 35.00</td>
+              <td>8</td>
+              <td>S/ 35.00</td>
+              <td>5</td>
+              <td>17</td>
+              <td>S/ 595.00</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2023-10-17</td>
+              <td>Teclado Redragon Kumara K552</td>
+              <td>Teclado mecánico retroiluminado</td>
+              <td>10</td>
+              <td>S/ 180.00</td>
+              <td>4</td>
+              <td>S/ 180.00</td>
+              <td>2</td>
+              <td>8</td>
+              <td>S/ 1,440.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </main>
 
     <script src="../js/fadeinup.js"></script>

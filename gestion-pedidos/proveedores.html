@@ -25,20 +25,58 @@
 
       <ul class="nav-links">
         <li>
-          <a href="../dashboard.html">
+          <a href="../principal.html">
             <i class="fa-solid fa-home"></i>
-            Dashboard</a
+            Principal</a
           >
         </li>
 
         <li>
-          <a href="../kardex/kardex.html">
-            <i class="fa-solid fa-warehouse"></i>
-            Kardex</a
+          <a href="../dashboard.html">
+            <i class="fa-solid fa-chart-simple"></i>
+            Dashboard</a
           >
         </li>
 
         <hr />
+
+        <li>
+          <input type="checkbox" id="comerciales-toogle" />
+          <label for="comerciales-toogle">
+            Relaciones comerciales
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../relaciones-comerciales/persona.html">
+                <i class="fa-solid fa-user"></i>
+                Persona
+              </a>
+            </li>
+            <li>
+              <a href="../relaciones-comerciales/empresa.html">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="recursos-h-toogle" />
+          <label for="recursos-h-toogle">
+            Recursos Humanos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../recursos-humanos/empleados.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Empleados
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <input type="checkbox" id="usuarios-toogle" />
@@ -132,12 +170,6 @@
           </label>
           <ul class="submenu">
             <li>
-              <a href="../gestion-ventas/clientes.html">
-                <i class="fa-solid fa-user-plus"></i>
-                Clientes
-              </a>
-            </li>
-            <li>
               <a href="../gestion-ventas/ventas.html">
                 <i class="fa-solid fa-cash-register"></i>
                 Ventas
@@ -186,6 +218,12 @@
                 <i class="fa-solid fa-dolly"></i>
                 Reportes de pedidos
               </a>
+            </li>
+            <li>
+              <a href="../reportes/kardex.html">
+                <i class="fa-solid fa-warehouse"></i>
+                Kardex</a
+              >
             </li>
           </ul>
         </li>
@@ -248,118 +286,51 @@
       <table class="table" id="table-proveedores">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Razon social</th>
             <th>RUC</th>
             <th>Correo</th>
+            <th>Página web</th>
             <th>Descripción</th>
-            <th>Teléfono</th>
-            <th>Localidad</th>
-            <th>Dirección</th>
             <th></th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Inversiones Alpha S.A.C.</td>
-            <td>20123456789</td>
-            <td>contacto@alpha.com</td>
-            <td>Empresa dedicada a servicios financieros y asesorías.</td>
-            <td>987654321</td>
-            <td>Lima - Lima - Miraflores</td>
-            <td>Av. Larco 123</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Inversiones S.A.C.</td>
-            <td>20123456789</td>
-            <td>contacto@alpha.com</td>
-            <td>Empresa dedicada a servicios financieros.</td>
-            <td>987654321</td>
-            <td>Miraflores</td>
-            <td>Av. Larco 123</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
     </main>
 
     <dialog class="modal" id="modal-proveedores">
       <div class="modal-content">
-        <h2 class="modal-title">Nuevo contrato</h2>
+        <h2 class="modal-title">Nuevo proveedor</h2>
         <form method="dialog" id="usuario-form">
           <div class="columnas-group">
             <div class="columna1">
               <div class="form-group">
-                <label for="razonSocial">Razón social:</label>
-                <input type="text" id="razonSocial" required />
-              </div>
-              <div class="form-group">
-                <label for="ruc">RUC:</label>
-                <input type="number" max="11" id="ruc" required />
+                <label for="empresa">Proveedor:</label>
+                <select id="empresa" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="correo">Correo:</label>
-                <input type="email" id="correo" required />
+                <input type="email" id="correo" maxlength="150" />
+              </div>
+              <div class="form-group">
+                <label for="pagina_web">Página web:</label>
+                <input type="url" id="pagina_web" maxlength="500" />
               </div>
               <div class="form-group">
                 <label for="descripcion">Descripción:</label>
                 <textarea
                   id="descripcion"
-                  name="descripcion"
-                  rows="6"
-                  cols="60"
+                  maxlength="500"
+                  rows="5"
+                  required
                 ></textarea>
-              </div>
-              <div class="form-group">
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" max="9" id="telefono" required />
-              </div>
-              <div class="form-group">
-                <label for="departamento">Departamento:</label>
-                <select id="departamento" required>
-                  <option value="">— Seleccionar —</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="provincia">Provincia:</label>
-                <select id="provincia" disabled required>
-                  <option value="">— Seleccionar —</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="provincia">Distrito:</label>
-                <select id="distrito" disabled required>
-                  <option value="">— Seleccionar —</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="direccion">Dirección:</label>
-                <input type="text" id="direccion" required />
               </div>
             </div>
           </div>
+
           <div class="form-group-btns">
             <button
               type="button"

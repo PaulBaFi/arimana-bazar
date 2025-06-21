@@ -4,7 +4,7 @@
 }
 
 .info-profile {
-    width: 350px;
+    width: 100%;
     border: 1px dashed #dadada;
     border-radius: .7em;
     padding-bottom: 2em;
@@ -15,6 +15,7 @@
     padding: 4em;
     padding-bottom: 1em;
     width: 100%;
+    max-width: 300px;
 }
 
 .info-profile-group {

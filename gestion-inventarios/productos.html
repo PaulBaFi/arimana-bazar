@@ -25,20 +25,58 @@
 
       <ul class="nav-links">
         <li>
-          <a href="../dashboard.html">
+          <a href="../principal.html">
             <i class="fa-solid fa-home"></i>
-            Dashboard</a
+            Principal</a
           >
         </li>
 
         <li>
-          <a href="../kardex/kardex.html">
-            <i class="fa-solid fa-warehouse"></i>
-            Kardex</a
+          <a href="../dashboard.html">
+            <i class="fa-solid fa-chart-simple"></i>
+            Dashboard</a
           >
         </li>
 
         <hr />
+
+        <li>
+          <input type="checkbox" id="comerciales-toogle" />
+          <label for="comerciales-toogle">
+            Relaciones comerciales
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../relaciones-comerciales/persona.html">
+                <i class="fa-solid fa-user"></i>
+                Persona
+              </a>
+            </li>
+            <li>
+              <a href="../relaciones-comerciales/empresa.html">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="recursos-h-toogle" />
+          <label for="recursos-h-toogle">
+            Recursos Humanos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../recursos-humanos/empleados.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Empleados
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <input type="checkbox" id="usuarios-toogle" />
@@ -132,12 +170,6 @@
           </label>
           <ul class="submenu">
             <li>
-              <a href="../gestion-ventas/clientes.html">
-                <i class="fa-solid fa-user-plus"></i>
-                Clientes
-              </a>
-            </li>
-            <li>
               <a href="../gestion-ventas/ventas.html">
                 <i class="fa-solid fa-cash-register"></i>
                 Ventas
@@ -186,6 +218,12 @@
                 <i class="fa-solid fa-dolly"></i>
                 Reportes de pedidos
               </a>
+            </li>
+            <li>
+              <a href="../reportes/kardex.html">
+                <i class="fa-solid fa-warehouse"></i>
+                Kardex</a
+              >
             </li>
           </ul>
         </li>

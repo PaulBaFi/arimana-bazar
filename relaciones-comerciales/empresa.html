@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Almacenes | Arimana Bazar Ica</title>
+    <title>Empresa | Arimana Bazar Ica</title>
 
     <link rel="stylesheet" href="../css/global.css" />
     <link
@@ -41,7 +41,7 @@
         <hr />
 
         <li>
-          <input type="checkbox" id="comerciales-toogle" />
+          <input type="checkbox" id="comerciales-toogle" checked />
           <label for="comerciales-toogle">
             Relaciones comerciales
             <i class="fa-solid fa-chevron-right"></i>
@@ -113,7 +113,7 @@
         </li>
 
         <li>
-          <input type="checkbox" id="inventarios-toogle" checked />
+          <input type="checkbox" id="inventarios-toogle" />
           <label for="inventarios-toogle">
             Gestión de inventarios
             <i class="fa-solid fa-chevron-right"></i>
@@ -253,108 +253,104 @@
     <main class="main">
       <div class="breadcrumbs">
         <p>
-          Dashboard &nbsp;/&nbsp; Gestión de inventarios &nbsp;/&nbsp;
-          <span>Almacenes</span>
+          Dashboard &nbsp;/&nbsp; Relaciones comerciales &nbsp;/&nbsp;
+          <span>Empresa</span>
         </p>
       </div>
 
       <div class="actions-section">
-        <h1 class="main-title">Almacenes</h1>
+        <h1 class="main-title">Empresa</h1>
         <div class="button-group">
           <button
             class="btn btn-primary"
-            onclick="
-            document.querySelector('#modal-almacenes').showModal()"
-            id="btn-nuevo-almacen"
+            onclick="document.querySelector('#modal-empresa').showModal()"
+            id="btn-nueva-empresa"
           >
-            <i class="fa-solid fa-plus"></i>
-            Nuevo almacén
+            <i class="fa-solid fa-add"></i>
+            Añadir empresa
           </button>
         </div>
       </div>
 
       <div class="search-container">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Buscar por ID o nombre de almacen..."
-        />
+        <input type="text" id="search-input" placeholder="Buscar por " />
         <button id="btn-search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <table class="table" id="table-almacenes">
-        <thead>
-          <tr>
-            <th>Nombre de Almacén</th>
-            <th>Ubicación</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Almacén 1</td>
-            <td>Piso 1</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Almacén 2</td>
-            <td>Piso 2</td>
-            <td>
-              <button class="action-btn edit-btn">
-                <i class="fas fa-edit"></i>
-              </button>
-            </td>
-            <td>
-              <button class="action-btn delete-btn">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="table" id="table-empresa">
+          <thead>
+            <tr>
+              <th>Razón social</th>
+              <th>RUC</th>
+              <th>Teléfono</th>
+              <th>Dirección</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
 
-      <dialog class="modal" id="modal-almacenes">
-        <div class="modal-content">
-          <h2 class="modal-title">Nuevo cargo</h2>
-          <form method="dialog" id="usuario-form">
-            <div class="columnas-group">
-              <div class="columna1">
-                <div class="form-group">
-                  <label for="nombre">Nombre:</label>
-                  <input type="text" id="nombre" required />
-                </div>
-                <div class="form-group">
-                  <label for="ubicacion">Ubicacion:</label>
-                  <input type="text" id="ubicacion" required />
-                </div>
+    <dialog class="modal" id="modal-empresa">
+      <div class="modal-content">
+        <h2 class="modal-title">Nueva empresa</h2>
+        <form method="dialog" id="usuario-form">
+          <div class="columnas-group">
+            <div class="columna1">
+              <div class="form-group">
+                <label for="razon_social">Razón Social:</label>
+                <input type="text" id="razon_social" maxlength="200" required />
+              </div>
+              <div class="form-group">
+                <label for="ruc">RUC:</label>
+                <input
+                  type="text"
+                  id="ruc"
+                  pattern="\d{11}"
+                  maxlength="11"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input
+                  type="tel"
+                  id="telefono"
+                  pattern="\d{9}"
+                  maxlength="9"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" maxlength="200" required />
+              </div>
+              <div class="form-group">
+                <label for="distrito">Distrito:</label>
+                <select id="distrito" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
               </div>
             </div>
-            <div class="form-group-btns">
-              <button
-                type="button"
-                onclick="document.querySelector('#modal-almacenes').close()"
-                id="btn-cancelar-usuario"
-              >
-                Cancelar
-              </button>
-              <button type="submit" id="btn-guardar-usuario">Guardar</button>
-            </div>
-          </form>
-        </div>
-      </dialog>
-    </main>
+          </div>
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-empresa').close()"
+              id="btn-cancelar-empresa"
+            >
+              Cancelar
+            </button>
+            <button type="submit" id="btn-guardar-empresa">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 
     <script src="../js/fadeinup.js"></script>
   </body>

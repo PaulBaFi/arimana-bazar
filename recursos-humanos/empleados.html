@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kardex | Arimana Bazar Ica</title>
+    <title>Empleados | Arimana Bazar Ica</title>
 
     <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/dashboard.css" />
     <link
       rel="shortcut icon"
       href="../img/SimpleLogo.png"
@@ -26,20 +25,58 @@
 
       <ul class="nav-links">
         <li>
-          <a href="../dashboard.html">
+          <a href="../principal.html">
             <i class="fa-solid fa-home"></i>
-            Dashboard</a
+            Principal</a
           >
         </li>
 
         <li>
-          <a href="./kardex.html">
-            <i class="fa-solid fa-warehouse"></i>
-            Kardex</a
+          <a href="../dashboard.html">
+            <i class="fa-solid fa-chart-simple"></i>
+            Dashboard</a
           >
         </li>
 
         <hr />
+
+        <li>
+          <input type="checkbox" id="comerciales-toogle" />
+          <label for="comerciales-toogle">
+            Relaciones comerciales
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../relaciones-comerciales/persona.html">
+                <i class="fa-solid fa-user"></i>
+                Persona
+              </a>
+            </li>
+            <li>
+              <a href="../relaciones-comerciales/empresa.html">
+                <i class="fa-solid fa-building"></i>
+                Empresa
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <input type="checkbox" id="recursos-h-toogle" checked />
+          <label for="recursos-h-toogle">
+            Recursos Humanos
+            <i class="fa-solid fa-chevron-right"></i>
+          </label>
+          <ul class="submenu">
+            <li>
+              <a href="../recursos-humanos/empleados.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Empleados
+              </a>
+            </li>
+          </ul>
+        </li>
 
         <li>
           <input type="checkbox" id="usuarios-toogle" />
@@ -133,12 +170,6 @@
           </label>
           <ul class="submenu">
             <li>
-              <a href="../gestion-ventas/clientes.html">
-                <i class="fa-solid fa-user-plus"></i>
-                Clientes
-              </a>
-            </li>
-            <li>
               <a href="../gestion-ventas/ventas.html">
                 <i class="fa-solid fa-cash-register"></i>
                 Ventas
@@ -188,6 +219,12 @@
                 Reportes de pedidos
               </a>
             </li>
+            <li>
+              <a href="../reportes/kardex.html">
+                <i class="fa-solid fa-warehouse"></i>
+                Kardex</a
+              >
+            </li>
           </ul>
         </li>
       </ul>
@@ -215,89 +252,113 @@
 
     <main class="main">
       <div class="breadcrumbs">
-        <p><i class="fa-solid fa-home"></i> &nbsp; / &nbsp; Kardex</p>
+        <p>
+          Dashboard &nbsp;/&nbsp; Recursos humanos &nbsp;/&nbsp;
+          <span>Empleados</span>
+        </p>
       </div>
 
       <div class="actions-section">
-        <div>
-          <h1 class="main-title">Kardex</h1>
-          <p class="main-subtitle">
-            En el módulo KARDEX puede ver los movimientos y costos de entradas /
-            salidas de los productos.
-          </p>
+        <h1 class="main-title">Empleados</h1>
+        <div class="button-group">
+          <button
+            class="btn btn-primary"
+            onclick="document.querySelector('#modal-empleados').showModal()"
+            id="btn-nuevo-empleado"
+          >
+            <i class="fa-solid fa-add"></i>
+            Añadir empleado
+          </button>
         </div>
       </div>
 
       <div class="search-container">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Buscar por fecha, producto o descripcion..."
-        />
+        <input type="text" id="search-input" placeholder="Buscar por " />
         <button id="btn-search">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
 
-      <table class="table" id="table-usuarios">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Fecha</th>
-            <th>Producto</th>
-            <th>Descripcion</th>
-            <th>Entrada (u)</th>
-            <th>Cantidad entrada (u)</th>
-            <th>Salida (u)</th>
-            <th>Cantidad salida (u)</th>
-            <th>Inventario inicial</th>
-            <th>Inventario actual</th>
-            <th>Cantidad inventario</th>
-          </tr>
-        </thead>
-        <tbody id="usuarios-body">
-          <tr>
-            <td>1</td>
-            <td>2023-10-15</td>
-            <td>Laptop HP 15-dw1024la</td>
-            <td>Laptop 15.6" Core i5 8GB RAM 512GB SSD</td>
-            <td>5</td>
-            <td>S/ 2,450.00</td>
-            <td>2</td>
-            <td>S/ 2,450.00</td>
-            <td>3</td>
-            <td>6</td>
-            <td>S/ 14,700.00</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>2023-10-16</td>
-            <td>Mouse Logitech M170</td>
-            <td>Mouse inalámbrico 2.4Ghz color negro</td>
-            <td>20</td>
-            <td>S/ 35.00</td>
-            <td>8</td>
-            <td>S/ 35.00</td>
-            <td>5</td>
-            <td>17</td>
-            <td>S/ 595.00</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>2023-10-17</td>
-            <td>Teclado Redragon Kumara K552</td>
-            <td>Teclado mecánico retroiluminado</td>
-            <td>10</td>
-            <td>S/ 180.00</td>
-            <td>4</td>
-            <td>S/ 180.00</td>
-            <td>2</td>
-            <td>8</td>
-            <td>S/ 1,440.00</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="table" id="table-cliente">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombres</th>
+              <th>DNI</th>
+              <th>Cargo</th>
+              <th>Contrato</th>
+              <th>Salario</th>
+              <th>Turno</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </main>
+
+    <dialog class="modal" id="modal-empleados">
+      <div class="modal-content">
+        <h2 class="modal-title">Nuevo cliente jurídico</h2>
+        <form method="dialog" id="empleados-form">
+          <div class="columnas-group">
+            <div class="columna1">
+              <div class="form-group">
+                <label for="empleado">Persona (Empleado):</label>
+                <select id="empleado" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <select id="cargo" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="contrato">Contrato:</label>
+                <select id="contrato" required>
+                  <option value="">— Seleccionar —</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="salario">Salario:</label>
+                <input
+                  type="number"
+                  id="salario"
+                  required
+                  step="0.05"
+                  min="0"
+                  max="9999.99"
+                />
+              </div>
+              <div class="form-group">
+                <label for="turno">Turno:</label>
+                <select id="turno" required>
+                  <option value="">— Seleccionar —</option>
+                  <option value="M">Mañana</option>
+                  <option value="T">Tarde</option>
+                  <option value="N">Noche</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group-btns">
+            <button
+              type="button"
+              onclick="document.querySelector('#modal-empleados').close()"
+              id="btn-cancelar-empleado"
+            >
+              Cancelar
+            </button>
+            <button type="submit" id="btn-guardar-empleado">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
 
     <script src="../js/fadeinup.js"></script>
   </body>
