@@ -17,9 +17,9 @@
         </div>
         <div class="navbar-links">
             <a href="#productos">Productos</a>
-            <a href="#promos">Promociones</a>
             <a href="#resenas">Reseñas</a>
             <a href="#contacto">Contacto</a>
+            <a href="#nosotros">Nosotros</a>
         </div>
         <div class="navbar-settings">
             <a href="login.php">Ingresar</a>
@@ -187,6 +187,24 @@
                     <img src="./assets/images/map.png" alt="">
                 </a>
             </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="landing-nosotros grand-section">
+        <h2>Todo comienza con un gran <strong>objetivo</strong></h2>
+        <div class="nosotros-container container">
+            <?php
+            include "./lib/nostoros.php";
+
+            foreach ($nosotrosCards as $card): ?>
+                <div class="nosotros-card">
+                    <div class="icon">
+                        <?php require $card['icon']; ?>
+                    </div>
+                    <b class="nosotros-title"><?= htmlspecialchars($card['title']) ?></b>
+                    <p class="nosotros-text"><?= htmlspecialchars($card['text']) ?></p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </section>
 

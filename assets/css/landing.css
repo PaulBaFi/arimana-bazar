@@ -533,6 +533,39 @@ body {
     opacity: 1;
 }
 
+.nosotros-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    padding-inline: 20px;
+}
+
+.nosotros-card {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+}
+
+.nosotros-card:hover {
+    box-shadow: 0 6px 8px rgba(196, 196, 196, 0.5);
+}
+
+.nosotros-card .icon {
+    width: 100px;
+    height: 100px;
+}
+
+.nosotros-card .nosotros-title {
+    margin-block: 24px;
+    font-size: 32px;
+}
+
 .landing-footer {
     margin: 20px;
     border-radius: 20px;

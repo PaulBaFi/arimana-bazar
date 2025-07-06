@@ -862,7 +862,7 @@ table .span_cell.total_precio {
 
 .main-panel {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
     gap: 20px;
     background-color: var(--bg-color);
     padding: 20px;

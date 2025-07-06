@@ -58,7 +58,7 @@
         <div class="main-content">
             <div class="toolbar">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Buscar usuarios por DNI, nombre, correo o rol...">
+                    <input type="text" id="searchInput" placeholder="Buscar usuarios por nombre, correo o rol...">
                 </div>
 
                 <a href="index.php?controller=usuario&action=create" class="btn btn-primary">
