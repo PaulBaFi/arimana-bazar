@@ -84,7 +84,7 @@
                         <tbody>
                             <?php if (empty($productos)): ?>
                                 <tr>
-                                    <td colspan="8" class="no-registros">No hay productos registradas.</td>
+                                    <td colspan="8" class="no-registros">No hay productos registrados.</td>
                                 </tr>
                             <?php else: ?>
                                 <?php foreach ($productos as $producto): ?>

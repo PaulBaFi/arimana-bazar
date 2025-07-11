@@ -52,7 +52,8 @@
         <div class="main-content">
             <div class="toolbar">
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Buscar proveedores por razón social, RUC o descripción...">
+                    <input type="text" id="searchInput"
+                        placeholder="Buscar proveedores por razón social, RUC o descripción...">
                 </div>
                 <a href="index.php?controller=proveedor&action=create" class="btn btn-primary">
                     <i class="fa-solid fa-plus"></i>
@@ -78,9 +79,7 @@
                         <tbody>
                             <?php if (empty($proveedores)): ?>
                                 <tr>
-                                    <td colspan="8" class="no-registros">
-                                        No hay proveedores registrados.
-                                    </td>
+                                    <td colspan="8" class="no-registros">No hay proveedores registrados.</td>
                                 </tr>
                             <?php else: ?>
                                 <?php foreach ($proveedores as $proveedor): ?>

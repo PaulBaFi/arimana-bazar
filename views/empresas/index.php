@@ -83,7 +83,7 @@
                         <tbody>
                             <?php if (empty($empresas)): ?>
                                 <tr>
-                                    <td colspan="8" class="no-registros">No hay empresas registrados.</td>
+                                    <td colspan="8" class="no-registros">No hay empresas registradas.</td>
                                 </tr>
                             <?php else: ?>
                                 <?php foreach ($empresas as $empresa): ?>

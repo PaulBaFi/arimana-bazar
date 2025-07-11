@@ -82,35 +82,41 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($personas as $persona): ?>
-                                <tr class="<?= 'estado-' . $persona['estado'] ?>">
-                                    <td><?= $persona['id_persona'] ?></td>
-                                    <td><?= $persona['nombres'] . ' ' . $persona['apellidos'] ?></td>
-                                    <td><?= $persona['dni'] ?></td>
-                                    <td><?= $persona['correo'] ?></td>
-                                    <td><?= $persona['telefono'] ?></td>
-                                    <td><?= $persona['direccion'] ?></td>
-                                    <td><?= $persona['nacimiento'] ?></td>
-                                    <td><?= $persona['fecha_registro'] ?></td>
-                                    <td>
-                                        <?php if ($persona['estado'] == 1): ?>
-                                            <div class="actions">
-                                                <a href="index.php?controller=persona&action=edit&id=<?= $persona['id_persona'] ?>"
-                                                    class="btn btn-sm btn-edit">
-                                                    <i class="fa-solid fa-edit"></i>
-                                                </a>
-                                                <a href="index.php?controller=persona&action=delete&id=<?= $persona['id_persona'] ?>"
-                                                    class="btn btn-sm btn-delete"
-                                                    onclick="return confirm('¿Estás seguro de eliminar este registro?');">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </div>
-                                        <?php else: ?>
-                                            <span class="status-badge status-inactive">Inactivo</span>
-                                        <?php endif; ?>
-                                    </td>
+                            <?php if (empty($personas)): ?>
+                                <tr>
+                                    <td colspan="9" class="no-registros">No hay personas registradas.</td>
                                 </tr>
-                            <?php endforeach; ?>
+                            <?php else: ?>
+                                <?php foreach ($personas as $persona): ?>
+                                    <tr class="<?= 'estado-' . $persona['estado'] ?>">
+                                        <td><?= $persona['id_persona'] ?></td>
+                                        <td><?= $persona['nombres'] . ' ' . $persona['apellidos'] ?></td>
+                                        <td><?= $persona['dni'] ?></td>
+                                        <td><?= $persona['correo'] ?></td>
+                                        <td><?= $persona['telefono'] ?></td>
+                                        <td><?= $persona['direccion'] ?></td>
+                                        <td><?= $persona['nacimiento'] ?></td>
+                                        <td><?= $persona['fecha_registro'] ?></td>
+                                        <td>
+                                            <?php if ($persona['estado'] == 1): ?>
+                                                <div class="actions">
+                                                    <a href="index.php?controller=persona&action=edit&id=<?= $persona['id_persona'] ?>"
+                                                        class="btn btn-sm btn-edit">
+                                                        <i class="fa-solid fa-edit"></i>
+                                                    </a>
+                                                    <a href="index.php?controller=persona&action=delete&id=<?= $persona['id_persona'] ?>"
+                                                        class="btn btn-sm btn-delete"
+                                                        onclick="return confirm('¿Estás seguro de eliminar este registro?');">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            <?php else: ?>
+                                                <span class="status-badge status-inactive">Inactivo</span>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

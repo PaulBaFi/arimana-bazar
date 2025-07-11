@@ -72,39 +72,45 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($ventas as $venta): ?>
+                            <?php if (empty($ventas)): ?>
                                 <tr>
-                                    <td><?= $venta['id_venta'] ?></td>
-                                    <td><?= htmlspecialchars($venta['cliente']) ?></td>
-                                    <td>
-                                        <?= htmlspecialchars($venta['usuario']) ?>
-                                        <span class="<?= 'user-badge user-' . ($venta['rol']) ?>">
-                                            <?php if (strtolower($venta['rol']) === 'administrador'): ?>
-                                                ADMIN
-                                            <?php else: ?>
-                                                GERENTE
-                                            <?php endif; ?>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <span class="<?= 'documento documento-' . strtolower($venta['documento']) ?>">
-                                            <?= $venta['documento'] ?>
-                                        </span>
-                                    </td>
-                                    <td>S/ <?= number_format($venta['igv'], 2) ?></td>
-                                    <td><span class="total-badge">S/ <?= number_format($venta['total_pagar'], 2) ?></span>
-                                    </td>
-                                    <td><?= $venta['fecha_venta'] ?></td>
-                                    <td>
-                                        <div class="actions">
-                                            <button class="btn btn-sm btn-info ver-detalle-venta"
-                                                data-id="<?= $venta['id_venta'] ?>">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </button>
-                                        </div>
-                                    </td>
+                                    <td colspan="8" class="no-registros">No hay personas registradas.</td>
                                 </tr>
-                            <?php endforeach ?>
+                            <?php else: ?>
+                                <?php foreach ($ventas as $venta): ?>
+                                    <tr>
+                                        <td><?= $venta['id_venta'] ?></td>
+                                        <td><?= htmlspecialchars($venta['cliente']) ?></td>
+                                        <td>
+                                            <?= htmlspecialchars($venta['usuario']) ?>
+                                            <span class="<?= 'user-badge user-' . strtolower($venta['rol']) ?>">
+                                                <?php if (strtolower($venta['rol']) === 'administrador'): ?>
+                                                    ADMIN
+                                                <?php else: ?>
+                                                    EMPLEADO
+                                                <?php endif; ?>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="<?= 'documento documento-' . strtolower($venta['documento']) ?>">
+                                                <?= $venta['documento'] ?>
+                                            </span>
+                                        </td>
+                                        <td>S/ <?= number_format($venta['igv'], 2) ?></td>
+                                        <td><span class="total-badge">S/ <?= number_format($venta['total_pagar'], 2) ?></span>
+                                        </td>
+                                        <td><?= $venta['fecha_venta'] ?></td>
+                                        <td>
+                                            <div class="actions">
+                                                <button class="btn btn-sm btn-info ver-detalle-venta"
+                                                    data-id="<?= $venta['id_venta'] ?>">
+                                                    <i class="fa-solid fa-eye"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>

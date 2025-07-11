@@ -79,37 +79,48 @@
                         </thead>
 
                         <tbody>
+                            <?php if (empty($usuarios)): ?>
+                            <tr>
+                                <td colspan="7" class="no-registros">No hay usuarios registrados.</td>
+                            </tr>
+                            <?php else: ?>
                             <?php foreach ($usuarios as $usuario): ?>
-                                <tr class="<?= 'estado-' . $usuario['estado'] ?>">
-                                    <td><?= $usuario['id_usuario'] ?></td>
-                                    <td><?= $usuario['nombres'] . ' ' . $usuario['apellidos'] ?></td>
-                                    <td><?= $usuario['dni'] ?></td>
-                                    <td><?= $usuario['correo'] ?></td>
-                                    <td>
-                                        <span
-                                            class="rol-badge <?= 'rol-' . $usuario['rol'] ?>"><?= $usuario['rol'] ?></span>
-                                    </td>
-                                    <td><?= $usuario['fecha_registro'] ?></td>
-                                    <td>
-                                        <?php if ($usuario['estado'] == 1): ?>
-                                            <div class="actions">
-                                                <a href="index.php?controller=usuario&action=edit&id=<?= $usuario['id_usuario'] ?>"
-                                                    class="btn btn-sm btn-edit">
-                                                    <i class="fa-solid fa-edit"></i>
-                                                </a>
-
-                                                <a href="index.php?controller=usuario&action=delete&id=<?= $usuario['id_usuario'] ?>"
-                                                    class="btn btn-sm btn-delete btn-delete-user"
-                                                    data-id="<?= $usuario['id_usuario'] ?>">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </div>
+                            <tr class="<?= 'estado-' . $usuario['estado'] ?>">
+                                <td><?= $usuario['id_usuario'] ?></td>
+                                <td><?= $usuario['nombres'] . ' ' . $usuario['apellidos'] ?></td>
+                                <td><?= $usuario['dni'] ?></td>
+                                <td><?= $usuario['correo'] ?></td>
+                                <td>
+                                    <span class="rol-badge <?= 'user-' . strtolower($usuario['rol']) ?>">
+                                        <?php if (strtolower($usuario['rol']) === 'administrador'): ?>
+                                        ADMIN
                                         <?php else: ?>
-                                            <span class="status-badge status-inactive">Inactivo</span>
+                                        EMPLEADO
                                         <?php endif; ?>
-                                    </td>
-                                </tr>
+                                    </span>
+                                </td>
+                                <td><?= $usuario['fecha_registro'] ?></td>
+                                <td>
+                                    <?php if ($usuario['estado'] == 1): ?>
+                                    <div class="actions">
+                                        <a href="index.php?controller=usuario&action=edit&id=<?= $usuario['id_usuario'] ?>"
+                                            class="btn btn-sm btn-edit">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </a>
+
+                                        <a href="index.php?controller=usuario&action=delete&id=<?= $usuario['id_usuario'] ?>"
+                                            class="btn btn-sm btn-delete btn-delete-user"
+                                            data-id="<?= $usuario['id_usuario'] ?>">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </div>
+                                    <?php else: ?>
+                                    <span class="status-badge status-inactive">Inactivo</span>
+                                    <?php endif; ?>
+                                </td>
+                            </tr>
                             <?php endforeach; ?>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -119,77 +130,77 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        <?php if (isset($_GET['error'])): ?>
-            <?php if ($_GET['error'] === 'campos_vacios'): ?>
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Campos vacíos',
-                    text: 'Todos los campos son obligatorios.',
-                    confirmButtonColor: '#3085d6'
-                });
-            <?php elseif ($_GET['error'] === 'email_invalido'): ?>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Correo inválido',
-                    text: 'Por favor ingrese un correo electrónico válido.',
-                    confirmButtonColor: '#d33'
-                });
-            <?php elseif ($_GET['error'] === 'correo_existente'): ?>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Correo existente',
-                    text: 'El correo electrónico ya se encuentra registrado.',
-                    confirmButtonColor: '#d33'
-                });
-            <?php endif; ?>
-        <?php elseif (isset($_GET['msg'])): ?>
-            <?php
+document.addEventListener("DOMContentLoaded", function() {
+    <?php if (isset($_GET['error'])): ?>
+    <?php if ($_GET['error'] === 'campos_vacios'): ?>
+    Swal.fire({
+        icon: 'warning',
+        title: 'Campos vacíos',
+        text: 'Todos los campos son obligatorios.',
+        confirmButtonColor: '#3085d6'
+    });
+    <?php elseif ($_GET['error'] === 'email_invalido'): ?>
+    Swal.fire({
+        icon: 'error',
+        title: 'Correo inválido',
+        text: 'Por favor ingrese un correo electrónico válido.',
+        confirmButtonColor: '#d33'
+    });
+    <?php elseif ($_GET['error'] === 'correo_existente'): ?>
+    Swal.fire({
+        icon: 'error',
+        title: 'Correo existente',
+        text: 'El correo electrónico ya se encuentra registrado.',
+        confirmButtonColor: '#d33'
+    });
+    <?php endif; ?>
+    <?php elseif (isset($_GET['msg'])): ?>
+    <?php
             $msg = $_GET['msg'];
             $text = $msg === 'creado' ? 'Usuario registrado correctamente.'
                 : ($msg === 'actualizado' ? 'Usuario actualizado correctamente.'
                     : '');
             ?>
-            Swal.fire({
-                icon: 'success',
-                title: 'Éxito',
-                text: '<?= $text ?>',
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true
-            }).then(() => {
-                window.location.href = "index.php?controller=usuario&action=index";
-            });
-        <?php endif; ?>
+    Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: '<?= $text ?>',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+    }).then(() => {
+        window.location.href = "index.php?controller=usuario&action=index";
     });
+    <?php endif; ?>
+});
 
-    document.querySelectorAll(".btn-delete-user").forEach(button => {
-        button.addEventListener("click", async function(e) {
-            e.preventDefault();
+document.querySelectorAll(".btn-delete-user").forEach(button => {
+    button.addEventListener("click", async function(e) {
+        e.preventDefault();
 
-            const url = this.getAttribute("href");
+        const url = this.getAttribute("href");
 
-            const result = await Swal.fire({
-                title: "¿Desea eliminar al usuario?",
-                text: "El usuario cambiará su estado a inactivo.",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Sí, eliminar",
-                cancelButtonText: "Cancelar",
-                confirmButtonColor: "#d33",
-                cancelButtonColor: "#3085d6"
-            });
-
-            if (result.isConfirmed) {
-                await Swal.fire({
-                    icon: "success",
-                    title: "Eliminado correctamente",
-                    timer: 1500,
-                    showConfirmButton: false
-                });
-
-                window.location.href = url;
-            }
+        const result = await Swal.fire({
+            title: "¿Desea eliminar al usuario?",
+            text: "El usuario cambiará su estado a inactivo.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sí, eliminar",
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6"
         });
+
+        if (result.isConfirmed) {
+            await Swal.fire({
+                icon: "success",
+                title: "Eliminado correctamente",
+                timer: 1500,
+                showConfirmButton: false
+            });
+
+            window.location.href = url;
+        }
     });
+});
 </script>

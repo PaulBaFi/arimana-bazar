@@ -87,11 +87,11 @@
                                         <td><?= $pedido['id_pedido'] ?></td>
                                         <td>
                                             <?= htmlspecialchars($pedido['usuario']) ?>
-                                            <span class="user-badge user-<?= $pedido['rol'] ?>">
+                                            <span class="user-badge <?= 'user-' . strtolower($pedido['rol']) ?>">
                                                 <?php if (strtolower($pedido['rol']) === 'administrador'): ?>
                                                     ADMIN
                                                 <?php else: ?>
-                                                    GERENTE
+                                                    EMPLEADO
                                                 <?php endif; ?>
                                             </span>
                                         </td>
