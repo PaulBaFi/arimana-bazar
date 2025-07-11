@@ -21,7 +21,7 @@
     --edit-bg: #bde6ea;
     --delete-bg: #ffcaca;
     --admin-color: #7c3aed;
-    --empleado-color: #059669;
+    --empleado-color: #15a195;
 }
 
 .dialog-cards {
@@ -339,7 +339,7 @@
     color: var(--white);
 }
 
-.rol-gerente {
+.rol-empleado {
     background: var(--empleado-color);
     color: var(--white);
 }
@@ -366,7 +366,7 @@
     border: 1px solid #f59e0b;
 }
 
-.user-gerente {
+.user-empleado {
     background: #dbeafe;
     color: #1e40af;
     border: 1px solid #3b82f6;
@@ -858,7 +858,6 @@ table .span_cell.total_precio {
 }
 
 /* Ventana Panel */
-
 
 .main-panel {
     display: grid;

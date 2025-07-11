@@ -68,7 +68,8 @@
                             <select name="id_categoria" required>
                                 <option value="">—Seleccione una categoría—</option>
                                 <?php foreach ($categorias as $cat): ?>
-                                    <option value="<?= $cat['id_categoria'] ?>">
+                                    <option value="<?= $cat['id_categoria'] ?>"
+                                        <?= (isset($producto) && $producto['id_categoria'] == $cat['id_categoria']) ? 'selected' : '' ?>>
                                         <?= htmlspecialchars($cat['nom_cat']) ?>
                                     </option>
                                 <?php endforeach; ?>

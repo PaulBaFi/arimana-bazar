@@ -133,6 +133,43 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        <?php if (isset($_GET['error'])): ?>
+            <?php if ($_GET['error'] === 'campos_vacios'): ?>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campos vacíos',
+                    text: 'Todos los campos son obligatorios.',
+                    confirmButtonColor: '#3085d6'
+                });
+            <?php elseif ($_GET['error'] === 'datos_invalidos'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Datos inválidos',
+                    text: 'Los campos "Existencia" y "Precio" deben ser numéricos.',
+                    confirmButtonColor: '#d33'
+                });
+            <?php endif; ?>
+        <?php elseif (isset($_GET['msg'])): ?>
+            <?php
+            $msg = $_GET['msg'];
+            $text = $msg === 'creado' ? 'Producto registrado correctamente.'
+                : ($msg === 'actualizado' ? 'Producto actualizado correctamente.'
+                    : '');
+            ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: '<?= $text ?>',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true
+            }).then(() => {
+                window.location.href = "index.php?controller=producto&action=index";
+            });
+        <?php endif; ?>
+    });
+
     document.querySelectorAll(".btn-delete-producto").forEach(button => {
         button.addEventListener("click", async function(e) {
             e.preventDefault();

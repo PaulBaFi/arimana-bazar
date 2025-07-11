@@ -6,6 +6,7 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
+    font-family: 'Baloo 2', sans-serif;
 }
 
 :root {
@@ -24,6 +25,7 @@ body {
     font-family: 'Baloo 2', sans-serif;
     color: var(--text-color);
     height: 100dvh;
+    min-width: 320px;
 }
 
 .navbar {

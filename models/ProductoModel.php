@@ -34,7 +34,11 @@ class ProductoModel
 
     public function getById($id)
     {
-        $stmt = $this->db->prepare("SELECT C.*, P.* FROM Producto P INNER JOIN Categoria C WHERE id_producto = ?");
+        $stmt = $this->db->prepare("SELECT 
+            P.*, C.nom_cat, C.id_categoria 
+        FROM Producto P 
+        INNER JOIN Categoria C ON P.id_categoria = C.id_categoria 
+        WHERE P.id_producto = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

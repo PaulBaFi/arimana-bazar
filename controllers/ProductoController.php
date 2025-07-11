@@ -27,7 +27,7 @@ class ProductoController
 
     public function store($data)
     {
-        if (empty($data['nom_cat']) || empty($data['nom_prod']) || empty($data['descripcion_prod']) || empty($data['existencia']) || empty($data['precio'])) {
+        if (empty($data['id_categoria']) || empty($data['nom_prod']) || empty($data['descripcion_prod']) || empty($data['existencia']) || empty($data['precio'])) {
             header("Location: index.php?controller=producto&action=create&error=campos_vacios");
             return;
         }
@@ -48,13 +48,13 @@ class ProductoController
         $producto = $productoModel->getById($id);
 
         $categoriaModel = new CategoriaModel();
-        $categoria = $categoriaModel->getAll();
+        $categorias = $categoriaModel->getAll();
         include "views/productos/form.php";
     }
 
     public function update($data)
     {
-        if (empty($data['nom_cat']) || empty($data['nom_prod']) || empty($data['descripcion_prod']) || empty($data['existencia']) || empty($data['precio'])) {
+        if (empty($data['id_categoria']) || empty($data['nom_prod']) || empty($data['descripcion_prod']) || empty($data['existencia']) || empty($data['precio'])) {
             header("Location: index.php?controller=producto&action=edit&id=" . $data['id_producto'] . "&error=campos_vacios");
             return;
         }

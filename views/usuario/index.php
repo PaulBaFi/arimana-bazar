@@ -123,6 +123,25 @@
 </div>
 
 <script>
+    <?php if (isset($_GET['msg'])): ?>
+        <?php
+        $msg = $_GET['msg'];
+        $text = $msg === 'creado' ? 'Usuario registrado correctamente.'
+            : ($msg === 'actualizado' ? 'Usuario actualizado correctamente.'
+                : '');
+        ?>
+        Swal.fire({
+            icon: 'success',
+            title: 'Éxito',
+            text: '<?= $text ?>',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
+        }).then(() => {
+            window.location.href = "index.php?controller=usuario&action=index";
+        });
+    <?php endif; ?>
+
     document.querySelectorAll(".btn-delete-user").forEach(button => {
         button.addEventListener("click", async function(e) {
             e.preventDefault();

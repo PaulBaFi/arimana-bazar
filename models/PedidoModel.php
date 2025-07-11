@@ -83,7 +83,6 @@ class PedidoModel
 
     public function obtenerPedidoPorId($id_pedido)
     {
-
         $sql = "SELECT 
             P.id_pedido,
             P.observacion,
@@ -104,7 +103,6 @@ class PedidoModel
         $stmt->execute([$id_pedido]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-
 
     public function actualizarTotalPedido($id_pedido, $total)
     {

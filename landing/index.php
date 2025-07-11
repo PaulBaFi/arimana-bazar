@@ -15,7 +15,19 @@
         <div class="navbar-header">
             <img src="./assets/images/logo.svg" alt="">
         </div>
-        <div class="navbar-links">
+        <label for="toggleMenu" class="display-menu">
+            <div class="display-btn" onclick="openNav()">
+                <div class="icon">
+                    <?php include "./assets/icons/menu.php" ?>
+                </div>
+                Menu
+            </div>
+            <input type="checkbox" name="toggleMenu" id="toggleMenu">
+        </label>
+        <div class="navbar-links" id="myNav">
+            <div class="icon" onclick="closeNav()">
+                <?php include "./assets/icons/x.php" ?>
+            </div>
             <a href="#productos">Productos</a>
             <a href="#resenas">Reseñas</a>
             <a href="#contacto">Contacto</a>
@@ -295,6 +307,25 @@
             typeSpeed: 70,
             backSpeed: 50,
             loop: true,
+        });
+
+        function openNav() {
+            document.getElementById("myNav").classList.toggle("active");
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").classList.toggle("active");
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Selecciona todos los enlaces dentro del menú
+            const navLinks = document.querySelectorAll("#myNav a");
+
+            navLinks.forEach(function(link) {
+                link.addEventListener("click", function() {
+                    closeNav();
+                });
+            });
         });
     </script>
 </body>
