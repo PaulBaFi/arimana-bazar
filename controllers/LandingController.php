@@ -15,6 +15,4 @@ class LandingController
     {
         include "landing/index.php";
     }
-
-    // Aquí puedes agregar más métodos para manejar otras funcionalidades del controlador principal
 }

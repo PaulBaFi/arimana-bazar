@@ -132,7 +132,6 @@
                                     <label>Dirección:</label>
                                     <input type="text" name="direccion" value="<?= $cliente['direccion_persona'] ?>">
                                 </div>
-
                             <?php elseif ($tipo === 'empresa'): ?>
                                 <div class="form-group">
                                     <label>Razón Social:</label>

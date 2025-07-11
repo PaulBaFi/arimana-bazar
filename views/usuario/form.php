@@ -1,9 +1,5 @@
 <aside class="sidebar">
     <ul class="sidebar-menu">
-        <li class="">
-            <a class="sidebar-title-simple active" href="index.php?controller=principal&action=index">Principal</a>
-        </li>
-
         <li>
             <input type="checkbox" id="colaboradores" class="menu-item-check">
             <label class="sidebar-title" for="colaboradores">
@@ -61,7 +57,7 @@
                     <form action="index.php?controller=usuario&action=<?= isset($usuario) ? 'update' : 'store' ?>"
                         method="POST">
                         <?php if (isset($usuario)): ?>
-                        <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
+                            <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
                         <?php endif; ?>
 
                         <div class="form-group">
@@ -69,10 +65,10 @@
                             <select id="personaId" name="id_persona" required>
                                 <option value="">—Seleccione un empleado—</option>
                                 <?php foreach ($personas as $persona): ?>
-                                <option value="<?= $persona['id_persona'] ?>"
-                                    <?= (isset($usuario) && $usuario['id_persona'] == $persona['id_persona']) ? 'selected' : '' ?>>
-                                    <?= $persona['nombres'] . ' ' . $persona['apellidos'] ?>
-                                </option>
+                                    <option value="<?= $persona['id_persona'] ?>"
+                                        <?= (isset($usuario) && $usuario['id_persona'] == $persona['id_persona']) ? 'selected' : '' ?>>
+                                        <?= $persona['nombres'] . ' ' . $persona['apellidos'] ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -117,30 +113,30 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    <?php if (isset($_GET['error'])): ?>
-    <?php if ($_GET['error'] === 'campos_vacios'): ?>
-    Swal.fire({
-        icon: 'warning',
-        title: 'Campos vacíos',
-        text: 'Todos los campos son obligatorios.',
-        confirmButtonColor: '#3085d6'
+    document.addEventListener("DOMContentLoaded", function() {
+        <?php if (isset($_GET['error'])): ?>
+            <?php if ($_GET['error'] === 'campos_vacios'): ?>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campos vacíos',
+                    text: 'Todos los campos son obligatorios.',
+                    confirmButtonColor: '#3085d6'
+                });
+            <?php elseif ($_GET['error'] === 'email_invalido'): ?>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Correo existente',
+                    text: 'Por favor, ingrese correctamente el correo electrónico.',
+                    confirmButtonColor: '#3085d6'
+                });
+            <?php elseif ($_GET['error'] === 'correo_existente'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Correo existente',
+                    text: 'El correo ingresado ya se encuentra registrado.',
+                    confirmButtonColor: '#d33'
+                });
+            <?php endif; ?>
+        <?php endif ?>
     });
-    <?php elseif ($_GET['error'] === 'email_invalido'): ?>
-    Swal.fire({
-        icon: 'warning',
-        title: 'Correo existente',
-        text: 'Por favor, ingrese correctamente el correo electrónico.',
-        confirmButtonColor: '#3085d6'
-    });
-    <?php elseif ($_GET['error'] === 'correo_existente'): ?>
-    Swal.fire({
-        icon: 'error',
-        title: 'Correo existente',
-        text: 'El correo ingresado ya se encuentra registrado.',
-        confirmButtonColor: '#d33'
-    });
-    <?php endif; ?>
-    <?php endif ?>
-});
 </script>

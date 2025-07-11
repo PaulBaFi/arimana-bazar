@@ -1,16 +1,12 @@
 <?php
 
-$controllerName = $_GET['controller'] ?? 'principal';
+$controllerName = $_GET['controller'] ?? 'panel';
 $action = $_GET['action'] ?? 'index';
 
 switch ($controllerName) {
     case 'landing':
         require_once "controllers/LandingController.php";
         $controller = new LandingController();
-        break;
-    case 'principal':
-        require_once "controllers/PrincipalController.php";
-        $controller = new PrincipalController();
         break;
     case 'panel':
         require_once "controllers/PanelController.php";

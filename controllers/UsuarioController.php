@@ -37,7 +37,6 @@ class UsuarioController
             return;
         }
 
-        // Verificar si el correo ya existe
         $existingUser = $this->model->getByEmail($data['correo']);
         if ($existingUser) {
             header("Location: index.php?controller=usuario&action=create&error=correo_existente");

@@ -1,9 +1,5 @@
 <aside class="sidebar">
     <ul class="sidebar-menu">
-        <li class="">
-            <a class="sidebar-title-simple" href="index.php?controller=principal&action=index">Principal</a>
-        </li>
-
         <li>
             <input type="checkbox" id="colaboradores" class="menu-item-check" checked>
             <label class="sidebar-title" for="colaboradores">

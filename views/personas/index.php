@@ -1,9 +1,5 @@
 <aside class="sidebar">
     <ul class="sidebar-menu">
-        <li class="">
-            <a class="sidebar-title-simple" href="index.php?controller=principal&action=index">Principal</a>
-        </li>
-
         <li>
             <input type="checkbox" id="colaboradores" class="menu-item-check" checked>
             <label class="sidebar-title" for="colaboradores">
@@ -87,33 +83,33 @@
                         </thead>
                         <tbody>
                             <?php foreach ($personas as $persona): ?>
-                            <tr class="<?= 'estado-' . $persona['estado'] ?>">
-                                <td><?= $persona['id_persona'] ?></td>
-                                <td><?= $persona['nombres'] . ' ' . $persona['apellidos'] ?></td>
-                                <td><?= $persona['dni'] ?></td>
-                                <td><?= $persona['correo'] ?></td>
-                                <td><?= $persona['telefono'] ?></td>
-                                <td><?= $persona['direccion'] ?></td>
-                                <td><?= $persona['nacimiento'] ?></td>
-                                <td><?= $persona['fecha_registro'] ?></td>
-                                <td>
-                                    <?php if ($persona['estado'] == 1): ?>
-                                    <div class="actions">
-                                        <a href="index.php?controller=persona&action=edit&id=<?= $persona['id_persona'] ?>"
-                                            class="btn btn-sm btn-edit">
-                                            <i class="fa-solid fa-edit"></i>
-                                        </a>
-                                        <a href="index.php?controller=persona&action=delete&id=<?= $persona['id_persona'] ?>"
-                                            class="btn btn-sm btn-delete"
-                                            onclick="return confirm('¿Estás seguro de eliminar este registro?');">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
-                                    </div>
-                                    <?php else: ?>
-                                    <span class="status-badge status-inactive">Inactivo</span>
-                                    <?php endif; ?>
-                                </td>
-                            </tr>
+                                <tr class="<?= 'estado-' . $persona['estado'] ?>">
+                                    <td><?= $persona['id_persona'] ?></td>
+                                    <td><?= $persona['nombres'] . ' ' . $persona['apellidos'] ?></td>
+                                    <td><?= $persona['dni'] ?></td>
+                                    <td><?= $persona['correo'] ?></td>
+                                    <td><?= $persona['telefono'] ?></td>
+                                    <td><?= $persona['direccion'] ?></td>
+                                    <td><?= $persona['nacimiento'] ?></td>
+                                    <td><?= $persona['fecha_registro'] ?></td>
+                                    <td>
+                                        <?php if ($persona['estado'] == 1): ?>
+                                            <div class="actions">
+                                                <a href="index.php?controller=persona&action=edit&id=<?= $persona['id_persona'] ?>"
+                                                    class="btn btn-sm btn-edit">
+                                                    <i class="fa-solid fa-edit"></i>
+                                                </a>
+                                                <a href="index.php?controller=persona&action=delete&id=<?= $persona['id_persona'] ?>"
+                                                    class="btn btn-sm btn-delete"
+                                                    onclick="return confirm('¿Estás seguro de eliminar este registro?');">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </div>
+                                        <?php else: ?>
+                                            <span class="status-badge status-inactive">Inactivo</span>
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>

@@ -55,6 +55,23 @@
                 icon: 'error',
                 confirmButtonText: 'Aceptar'
             });
+
+            Swal.fire({
+                title: '¡Bienvenido!',
+                text: `
+                <?php if (isset($_SESSION['usuario'])): ?>
+                    Bienvenid@ <?= htmlspecialchars($_SESSION['usuario']['nombres']) ?>
+                <?php endif ?>
+                `,
+                icon: 'success',
+                confirmButtonText: 'Continuar',
+                timer: 2500,
+                timerProgressBar: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then(() => {
+                window.location.href = 'index.php?controller=panel&action=index';
+            });
         </script>
     <?php endif;  ?>
 

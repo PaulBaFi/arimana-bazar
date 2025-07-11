@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navbar-brands">
-        <a href="index.php?controller=principal&action=index" class="navbar-brand">
+        <a href="index.php?controller=panel&action=index" class="navbar-brand">
             <div class="icon xl">
                 <img src="./assets/images/logo.svg" alt="">
             </div>
@@ -9,19 +9,19 @@
     </div>
     <ul class="navbar-links">
         <li>
-            <a href="index.php?controller=principal&action=index" class="navbar-item">
-                <div class="icon">
-                    <img src="./assets/icons/home.svg" alt="">
-                </div>
-                Principal
-            </a>
-        </li>
-        <li>
             <a href="index.php?controller=panel&action=index" class="navbar-item">
                 <div class="icon">
                     <img src="./assets/icons/chart.svg" alt="">
                 </div>
                 Panel
+            </a>
+        </li>
+        <li>
+            <a href="index.php?controller=usuario&action=index" class="navbar-item">
+                <div class="icon">
+                    <img src="./assets/icons/users.svg" alt="">
+                </div>
+                Usuarios
             </a>
         </li>
         <li>
@@ -51,13 +51,13 @@
     </ul>
 
     <div class="navbar-settings">
-        <a href="index.php?controller=usuario&action=perfil" class="navbar-item">
+        <!-- <a href="index.php?controller=usuario&action=perfil" class="navbar-item">
             <div class="icon">
                 <img src="./assets/icons/settings.svg" alt="">
             </div>
         </a>
 
-        <div class="separator"></div>
+        <div class="separator"></div> -->
 
         <div class="navbar-item">
             <?php if (isset($_SESSION['usuario'])): ?>

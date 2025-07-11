@@ -48,6 +48,7 @@ class ClienteModel
             P.correo AS correo_persona,
             P.telefono AS telefono_persona,
             P.direccion AS direccion_persona,
+            P.nacimiento AS nacimiento_persona,
             E.razonsocial,
             E.ruc,
             E.correo AS correo_empresa,

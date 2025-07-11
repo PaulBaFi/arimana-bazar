@@ -1,9 +1,5 @@
 <aside class="sidebar">
     <ul class="sidebar-menu">
-        <li class="">
-            <a class="sidebar-title-simple active" href="index.php?controller=principal&action=index">Principal</a>
-        </li>
-
         <li>
             <input type="checkbox" id="colaboradores" class="menu-item-check">
             <label class="sidebar-title" for="colaboradores">
@@ -123,24 +119,49 @@
 </div>
 
 <script>
-    <?php if (isset($_GET['msg'])): ?>
-        <?php
-        $msg = $_GET['msg'];
-        $text = $msg === 'creado' ? 'Usuario registrado correctamente.'
-            : ($msg === 'actualizado' ? 'Usuario actualizado correctamente.'
-                : '');
-        ?>
-        Swal.fire({
-            icon: 'success',
-            title: 'Éxito',
-            text: '<?= $text ?>',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true
-        }).then(() => {
-            window.location.href = "index.php?controller=usuario&action=index";
-        });
-    <?php endif; ?>
+    document.addEventListener("DOMContentLoaded", function() {
+        <?php if (isset($_GET['error'])): ?>
+            <?php if ($_GET['error'] === 'campos_vacios'): ?>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campos vacíos',
+                    text: 'Todos los campos son obligatorios.',
+                    confirmButtonColor: '#3085d6'
+                });
+            <?php elseif ($_GET['error'] === 'email_invalido'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Correo inválido',
+                    text: 'Por favor ingrese un correo electrónico válido.',
+                    confirmButtonColor: '#d33'
+                });
+            <?php elseif ($_GET['error'] === 'correo_existente'): ?>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Correo existente',
+                    text: 'El correo electrónico ya se encuentra registrado.',
+                    confirmButtonColor: '#d33'
+                });
+            <?php endif; ?>
+        <?php elseif (isset($_GET['msg'])): ?>
+            <?php
+            $msg = $_GET['msg'];
+            $text = $msg === 'creado' ? 'Usuario registrado correctamente.'
+                : ($msg === 'actualizado' ? 'Usuario actualizado correctamente.'
+                    : '');
+            ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Éxito',
+                text: '<?= $text ?>',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true
+            }).then(() => {
+                window.location.href = "index.php?controller=usuario&action=index";
+            });
+        <?php endif; ?>
+    });
 
     document.querySelectorAll(".btn-delete-user").forEach(button => {
         button.addEventListener("click", async function(e) {

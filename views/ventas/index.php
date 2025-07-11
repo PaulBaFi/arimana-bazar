@@ -46,88 +46,65 @@
     <main class="main">
         <header class="header">
             <h1>Gestión de Ventas</h1>
-            <p>Administra las ventas realizadas a clientes</p>
+            <p>Administra las ventas realizadas a los clientes</p>
         </header>
 
         <div class="main-content">
             <div class="toolbar">
-                <div class="search-box">
-                    <input type="text" id="searchInput"
-                        placeholder="Buscar ventas por cliente, usuario o fecha de venta...">
-                </div>
                 <a href="index.php?controller=venta&action=create" class="btn btn-primary">
-                    <i class="fa-solid fa-plus"></i>
-                    Nueva venta
+                    <i class="fa-solid fa-plus"></i> Nueva venta
                 </a>
             </div>
 
             <div class="table-grid">
                 <div class="table-container">
-                    <table class="base-table" id="pedidosTable">
+                    <table class="base-table" id="ventasTable">
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Usuario</th>
                                 <th>Cliente</th>
-                                <th>Total</th>
-                                <th>Observación</th>
-                                <th>Productos</th>
+                                <th>Usuario</th>
                                 <th>Documento</th>
-                                <th>IGV (%)</th>
-                                <th>Fecha Venta</th>
+                                <th>IGV</th>
+                                <th>Total</th>
+                                <th>Fecha</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (empty($pedidos)): ?>
+                            <?php foreach ($ventas as $venta): ?>
                                 <tr>
-                                    <td colspan="11" class="no-registros">No hay ventas registradas.</td>
+                                    <td><?= $venta['id_venta'] ?></td>
+                                    <td><?= htmlspecialchars($venta['cliente']) ?></td>
+                                    <td>
+                                        <?= htmlspecialchars($venta['usuario']) ?>
+                                        <span class="<?= 'user-badge user-' . ($venta['rol']) ?>">
+                                            <?php if (strtolower($venta['rol']) === 'administrador'): ?>
+                                                ADMIN
+                                            <?php else: ?>
+                                                GERENTE
+                                            <?php endif; ?>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <span class="<?= 'documento documento-' . strtolower($venta['documento']) ?>">
+                                            <?= $venta['documento'] ?>
+                                        </span>
+                                    </td>
+                                    <td>S/ <?= number_format($venta['igv'], 2) ?></td>
+                                    <td><span class="total-badge">S/ <?= number_format($venta['total_pagar'], 2) ?></span>
+                                    </td>
+                                    <td><?= $venta['fecha_venta'] ?></td>
+                                    <td>
+                                        <div class="actions">
+                                            <button class="btn btn-sm btn-info ver-detalle-venta"
+                                                data-id="<?= $venta['id_venta'] ?>">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
                                 </tr>
-                            <?php else: ?>
-                                <?php foreach ($pedidos as $pedido): ?>
-                                    <tr>
-                                        <td><?= $pedido['id_pedido'] ?></td>
-                                        <td>
-                                            <?= htmlspecialchars($pedido['usuario']) ?>
-                                            <span class="user-badge user-<?= $pedido['rol'] ?>">
-                                                <?php if (strtolower($pedido['rol']) === 'administrador'): ?>
-                                                    ADMIN
-                                                <?php else: ?>
-                                                    GERENTE
-                                                <?php endif; ?>
-                                            </span>
-                                        </td>
-                                        <td><?= htmlspecialchars($pedido['proveedor']) ?></td>
-                                        <td><span class="total-badge">S/ <?= number_format($pedido['total_pagar'], 2) ?></span>
-                                        </td>
-                                        <td><?= htmlspecialchars($pedido['observacion']) ?></td>
-                                        <td>
-                                            <span class="productos-count">
-                                                <?= $pedido['total_productos'] ?> unidades
-                                            </span>
-                                        </td>
-                                        <td><?= htmlspecialchars($pedido['fecha_pedido']) ?></td>
-                                        <td>
-                                            <div class="actions">
-                                                <button class="btn btn-sm btn-info ver-detalle-pedido" title="Ver detalles"
-                                                    data-id="<?= $pedido['id_pedido'] ?>">
-                                                    <i class="fas fa-eye"></i>
-                                                </button>
-
-                                                <a href="index.php?controller=pedido&action=edit&id=<?= $pedido['id_pedido'] ?>"
-                                                    class="btn btn-sm btn-edit" title="Editar">
-                                                    <i class="fa-solid fa-edit"></i>
-                                                </a>
-
-                                                <a href="index.php?controller=pedido&action=delete&id=<?= $pedido['id_pedido'] ?>"
-                                                    class="btn btn-sm btn-delete btn-delete-pedido">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -139,23 +116,25 @@
 <dialog id="modalDetalle">
     <form method="dialog" style="width: 100%;">
         <div class="modal-header">
-            <h3>Detalles del Pedido #1</h3>
+            <h3>Detalles de la Venta #<span id="ventaId"></span></h3>
             <menu><button><i class="fa-solid fa-xmark"></i></button></menu>
         </div>
-        <div id="contenidoDetalle"></div>
+        <div id="contenidoDetalleVenta">
+            <!-- Aquí se cargan dinámicamente los datos -->
+        </div>
     </form>
 </dialog>
 
 <script>
-    document.querySelectorAll(".ver-detalle-pedido").forEach(btn => {
+    document.querySelectorAll(".ver-detalle-venta").forEach(btn => {
         btn.addEventListener("click", async function() {
             const id = this.dataset.id;
 
-            const res = await fetch(`ajax/pedido_detalle.php?id_pedido=${id}`);
+            const res = await fetch(`ajax/venta_detalle.php?id=${id}`);
             const html = await res.text();
 
-            document.querySelector("#modalDetalle h3").innerText = `Detalles del Pedido #${id}`;
-            document.querySelector("#contenidoDetalle").innerHTML = html;
+            document.getElementById("ventaId").innerText = id;
+            document.getElementById("contenidoDetalleVenta").innerHTML = html;
 
             document.getElementById("modalDetalle").showModal();
         });

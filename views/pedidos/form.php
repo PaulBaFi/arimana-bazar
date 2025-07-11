@@ -42,7 +42,6 @@
     </ul>
 </aside>
 
-
 <div class="main-container">
     <main class="main">
         <header class="header">
@@ -60,19 +59,22 @@
                                 <select name="proveedorId" required>
                                     <option value="">Seleccione un proveedor</option>
                                     <?php foreach ($proveedores as $p): ?>
-                                        <option value="<?= $p['id_proveedor'] ?>"><?= htmlspecialchars($p['razonsocial']) ?></option>
+                                        <option value="<?= $p['id_proveedor'] ?>"><?= htmlspecialchars($p['razonsocial']) ?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label>Observación</label>
-                                <textarea name="observacion" maxlength="200" placeholder="Ingrese alguna observación"></textarea>
+                                <textarea name="observacion" maxlength="200"
+                                    placeholder="Ingrese alguna observación"></textarea>
                             </div>
 
                             <div class="col-section">
                                 <h4>Productos</h4>
-                                <button type="button" class="btn btn-primary" onclick="addDetalle()">Agregar Producto</button>
+                                <button type="button" class="btn btn-primary" onclick="addDetalle()">Agregar
+                                    Producto</button>
                             </div>
 
                             <div class="total-section">
